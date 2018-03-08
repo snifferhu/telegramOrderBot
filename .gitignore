@@ -1,5 +1,5 @@
 /log
-*core_config.py*
+core_config.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

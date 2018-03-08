@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3751710b-37af-4456-9767-2e30cf3b9a14" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/sniff-123456-bot.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.MD" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dao/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dao/deposit_list_dao.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dao/member_dao.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/dao/order_info_dao.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/balance.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/deposit.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/error.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/help.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/ll.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/menu.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/start.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/handlers/unknown.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/main.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/service/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/service/member_service.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/util/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/util/common.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/util/mysqlDB.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/util/mysqlPool.py" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,7 +12,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="104" column="7" lean-forward="false" selection-start-line="104" selection-start-column="7" selection-end-line="104" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -86,8 +70,8 @@
         <option value="$PROJECT_DIR$/handlers/deposit.py" />
         <option value="$PROJECT_DIR$/lib/core_config.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.MD" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -509,8 +493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="19" selection-end-column="4" />
+        <state relative-caret-position="346">
+          <caret line="104" column="7" lean-forward="false" selection-start-line="104" selection-start-column="7" selection-end-line="104" selection-end-column="7" />
           <folding />
         </state>
       </provider>

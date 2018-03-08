@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3751710b-37af-4456-9767-2e30cf3b9a14" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/README.MD" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/util/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/util/common.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/util/mysqlDB.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/util/mysqlPool.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/dao/deposit_list_dao.py" afterPath="$PROJECT_DIR$/dao/deposit_list_dao.py" />
-      <change beforePath="$PROJECT_DIR$/dao/member_dao.py" afterPath="$PROJECT_DIR$/dao/member_dao.py" />
-      <change beforePath="$PROJECT_DIR$/dao/order_info_dao.py" afterPath="$PROJECT_DIR$/dao/order_info_dao.py" />
-      <change beforePath="$PROJECT_DIR$/handlers/balance.py" afterPath="$PROJECT_DIR$/handlers/balance.py" />
-      <change beforePath="$PROJECT_DIR$/handlers/deposit.py" afterPath="$PROJECT_DIR$/handlers/deposit.py" />
-      <change beforePath="$PROJECT_DIR$/handlers/error.py" afterPath="$PROJECT_DIR$/handlers/error.py" />
-      <change beforePath="$PROJECT_DIR$/handlers/help.py" afterPath="$PROJECT_DIR$/handlers/help.py" />
-      <change beforePath="$PROJECT_DIR$/handlers/ll.py" afterPath="$PROJECT_DIR$/handlers/ll.py" />
-      <change beforePath="$PROJECT_DIR$/handlers/menu.py" afterPath="$PROJECT_DIR$/handlers/menu.py" />
-      <change beforePath="$PROJECT_DIR$/handlers/start.py" afterPath="$PROJECT_DIR$/handlers/start.py" />
-      <change beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-    </list>
+    <list default="true" id="3751710b-37af-4456-9767-2e30cf3b9a14" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,46 +11,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="40" column="39" lean-forward="false" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="core_config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/core_config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="access_152049.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/access_152049.log">
-          <provider selected="true" editor-type-id="LogFileEditorProvider">
-            <state relative-caret-position="-9737">
-              <caret line="18" column="65" lean-forward="true" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="19" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.MD" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.MD" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.MD">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -81,52 +24,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysqlDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/mysqlDB.py">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+            <state relative-caret-position="-75">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="19" selection-end-column="4" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysqlPool.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/mysqlPool.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="e#42#53#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="access_152032.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/access_152032.log">
-          <provider selected="true" editor-type-id="LogFileEditorProvider">
-            <state relative-caret-position="11350">
-              <caret line="454" column="0" lean-forward="false" selection-start-line="454" selection-start-column="0" selection-end-line="454" selection-end-column="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deposit.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/handlers/deposit.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="51" column="86" lean-forward="false" selection-start-line="51" selection-start-column="86" selection-end-line="51" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="access_152040.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/access_152040.log">
-          <provider selected="true" editor-type-id="LogFileEditorProvider">
-            <state relative-caret-position="438">
-              <caret line="338" column="0" lean-forward="true" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
             </state>
           </provider>
         </entry>
@@ -338,7 +241,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17420067" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4395722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49518716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -577,14 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="19" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util/mysqlDB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -611,6 +506,14 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="19" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>

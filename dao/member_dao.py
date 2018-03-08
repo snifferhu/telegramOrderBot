@@ -3,8 +3,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-from lib.mysqlPool import MySQLPool
-from lib.core_config import db_config
+from util.mysqlPool import MySQLPool
+from util.core_config import db_config
 
 dataBase = MySQLPool(**db_config)
 

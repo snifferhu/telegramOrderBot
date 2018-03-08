@@ -3,7 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-from lib.common import start_send_text
+from util.common import start_send_text
 
 
 def handle(bot, update):

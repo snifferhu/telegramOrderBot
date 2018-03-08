@@ -37,7 +37,7 @@ def dispatcher_start(updater):
 
 
 def main():
-    from lib.core_config import robot_token
+    from util.core_config import robot_token
     updater = Updater(token=robot_token)
     try:
         dispatcher_start(updater)

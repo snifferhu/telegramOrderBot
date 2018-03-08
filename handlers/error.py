@@ -3,7 +3,7 @@ import logging
 from telegram.error import *
 
 logger = logging.getLogger(__name__)
-from lib.common import unauthorized_send_text
+from util.common import unauthorized_send_text
 
 
 def handle(bot, update, error):

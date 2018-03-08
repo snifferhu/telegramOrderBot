@@ -3,7 +3,7 @@ import logging, time
 
 logger = logging.getLogger(__name__)
 
-from lib.common import help_send_text
+from util.common import help_send_text
 
 
 def handle(bot, update):

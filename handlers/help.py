@@ -3,10 +3,10 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-from lib.common import help_send_text
-from lib.common import help_send_text_1
-from lib.common import help_send_text_2
-from lib.common import help_send_text_3
+from util.common import help_send_text
+from util.common import help_send_text_1
+from util.common import help_send_text_2
+from util.common import help_send_text_3
 
 
 def handle(bot, update):

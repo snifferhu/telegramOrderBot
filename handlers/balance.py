@@ -3,7 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-from lib.common import balance_send_text
+from util.common import balance_send_text
 from dao import member_dao
 
 

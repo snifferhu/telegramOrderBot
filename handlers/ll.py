@@ -3,7 +3,7 @@ import logging, time
 
 logger = logging.getLogger(__name__)
 
-from lib.common import parse_cmd
+from util.common import parse_cmd
 from dao import order_info_dao
 
 def handle(bot, update):

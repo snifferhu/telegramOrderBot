@@ -3,11 +3,11 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-from lib.common import role_send_text
-from lib.common import parse_cmd
+from util.common import role_send_text
+from util.common import parse_cmd
 from service import member_service
-from lib.common import balance_send_text
-from lib.common import deposit_notice_text
+from util.common import balance_send_text
+from util.common import deposit_notice_text
 
 DOING, DONE = range(2)
 

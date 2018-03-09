@@ -99,4 +99,4 @@ help_send_text_3 = '''
 /rece - receive收账命令
 '''
 
-status = {"0": "init", "1": "cancel", "2": "over", "3": "received"}
+order_status = {"0": "init", "1": "cancel", "2": "over", "3": "received"}

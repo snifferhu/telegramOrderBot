@@ -9,9 +9,9 @@ We are now collecting Telegram Order Bot user info in order to help us to improv
 ----------------------
 |lib |version|
 |:-------------------|-----:|
-|python | 2.79|
+|python | 3.6+|
 |python telegram bot| 9.00|
-|mysql-connector-python|2.1.7|
+|pymysql|0.8.0|
 
 **Feature schedule**
 -------------------------

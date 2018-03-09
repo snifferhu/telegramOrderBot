@@ -4,15 +4,6 @@ import time
 import mysql.connector.pooling
 
 
-dbconfig = {
-    "host":"127.0.0.1",
-    "port":"3306",
-    "user":"root",
-    "password":"123456",
-    "database":"test",
-}
-
-
 class MySQLPool(object):
     """
     create a pool when connect mysql, which will decrease the time spent in
@@ -112,7 +103,7 @@ class MySQLPool(object):
 
 
 if __name__ == "__main__":
-    from common import db_config
+    from util.common import db_config
     mysql_pool = MySQLPool(**db_config)
     sql = "select * from `order_info` where member_id = '427009122'"
 
@@ -121,5 +112,5 @@ if __name__ == "__main__":
         t0 = time.time()
         for i in range(10):
             mysql_pool.execute(sql)
-            print i
-        print "time cousumed:", time.time() - t0
+            print (i)
+        print ("time cousumed:", time.time() - t0)

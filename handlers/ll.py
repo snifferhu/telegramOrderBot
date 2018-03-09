@@ -4,14 +4,16 @@ import logging, time
 logger = logging.getLogger(__name__)
 
 from util.common import parse_cmd
+from util.common import order_status
 from dao import order_info_dao
+
 
 def handle(bot, update):
     logger.info("chatId: %s,first_name: %s,text: %s", update.message.chat_id, update.message.from_user.first_name,
                 update.message.text)
     cmd, text = parse_cmd(update.message.text)
     if text == None:
-        order_info_dao.select_by_status()
+        order_info_dao.select_by_status("0")
     global menu_sleep_mutex
     if (int(time.time()) > menu_sleep_mutex + 5):
         menu_photo = open('.\menu\menu.jpg', 'rb')

@@ -23,16 +23,6 @@ def deposit(bot, update):
     bot.send_message(chat_id=from_user.id,
                      text=deposit_notice_text)
     return DOING
-    # member = member_dao.select_by_teleId(from_user.id)
-    # if len(member) == 0:
-    #     member_dao.insert(username=from_user.username,
-    #                       first_name=from_user.first_name,
-    #                       tele_id=from_user.id)
-    #     member = member_dao.select_by_teleId(from_user.id)
-    # bot.send_message(chat_id=from_user.id,
-    #                  text=balance_send_text.format(member[0][1].encode("utf-8"),
-    #                                                member[0][3],
-    #                                                member[0][0]))
 
 
 def doing(bot, update):
@@ -42,16 +32,16 @@ def doing(bot, update):
     if len(member) == 0:
         update.message.reply_text()
         return ConversationHandler.END
-    member = member_service.update_amount(tele_id=member[0][6], price=price, bef=member[0][3])
+    member = member_service.update_amount(tele_id=member[0]['tele_id'], price=price, bef=member[0]['amout'])
     from_user = update.message.from_user
     bot.send_message(chat_id=from_user.id,
-                     text=balance_send_text.format(member[0][2].encode("utf-8"),
-                                                   member[0][3],
-                                                   member[0][0]))
-    send_text = "管理员为您充值：{0}\n".format(price) + balance_send_text.format(member[0][2].encode("utf-8"),
-                                                                         member[0][3],
-                                                                         member[0][0])
-    bot.send_message(chat_id=member[0][6],
+                     text=balance_send_text.format(member[0]['nickName'].encode("utf-8"),
+                                                   member[0]['amout'],
+                                                   member[0]['id']))
+    send_text = "管理员为您充值：{0}\n".format(price) + balance_send_text.format(member[0]['nickName'].encode("utf-8"),
+                                                                         member[0]['amout'],
+                                                                         member[0]['id'])
+    bot.send_message(chat_id=member[0]['tele_id'],
                      text=send_text)
     logger.info('doing over')
     return ConversationHandler.END

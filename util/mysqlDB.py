@@ -9,6 +9,7 @@ logging.basicConfig(
     filemode='a')
 
 
+
 class DataBase(object):
     """docstring for DataBase"""
 

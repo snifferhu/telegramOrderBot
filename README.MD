@@ -24,10 +24,15 @@ new commands
 change commands 
 - over
 - orderList to ol
-- balance to bal
 - balanceList to bl
 - cancel from single to multi play
 
 fix bugs
 - orderList page index issue
 - balanceList page index issue
+
+**Done Task**
+-------------------------
+|Task|Date|
+|:------|:--------------:|
+| balance to bal|2018-3-9 17:44:33|

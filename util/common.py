@@ -6,7 +6,7 @@ logger = logging.getLogger(__name__)
 
 def parse_cmd(text):
     # Telegram understands UTF-8, so encode text for unicode compatibility
-    text = text.encode('utf-8')
+    # text = text.encode('utf-8')
     cmd = None
     if '/' in text:
         try:
@@ -36,6 +36,25 @@ balance_send_text = '''
 大佬：<{0}>
 余额：{1}
 编号：{2}
+'''
+
+cancel_notice_text = '''
+示例：/cancel [单号] [单号] \n示范：/cancel 1519106642s 1519106643s'''
+
+null_notice_send_text = '''
+单号<{0}>，不存在
+'''
+
+status_note_msg = '''
+单号<{0}>，已删除
+'''
+
+order_title_mgs = '''
+单号\t详情\t金额\t下单时间\t状态
+'''
+
+order_info_mgs = '''
+{0}\t<{1}>\t{2}\t{3}\t{4}
 '''
 
 role_send_text = '''

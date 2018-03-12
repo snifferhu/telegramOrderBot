@@ -18,7 +18,7 @@ def handle(bot, update):
                           tele_id=from_user.id)
         member = member_dao.select_by_teleId(from_user.id)
     bot.send_message(chat_id=from_user.id,
-                     text=balance_send_text.format(member[0]['nickName'].encode("utf-8"),
+                     text=balance_send_text.format(member[0]['nickName'],
                                                    member[0]['amout'],
                                                    member[0]['id']))
 

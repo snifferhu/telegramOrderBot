@@ -19,3 +19,8 @@ def select_by_id(id):
     member = member_dao.select_by_id(id)
     logging.info(member)
     return member
+
+def select_by_tele_id(tele_id):
+    member = member_dao.select_by_teleId(tele_id)
+    logging.info(member)
+    return member

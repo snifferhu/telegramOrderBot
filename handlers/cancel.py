@@ -19,6 +19,7 @@ def handle(bot, update):
                 update.message.text)
     from_user = update.message.from_user
     cmd, text = parse_cmd(update.message.text)
+    logger.info("%s  %s",cmd, text)
     if text == None or len(text) == 0:
         update.message.reply_text(cancel_notice_text)
         return
@@ -50,10 +51,10 @@ def handle(bot, update):
         order = order_info_dao.select_by_id(order_id)
         logging.info("cancel orders:{0}".format(order))
         send_msg = send_msg + order_info_mgs.format(order[0]['id'],
-                                         order[0]['item'],
-                                         order[0]['price'],
-                                         order[0]['create_time'],
-                                         order_status[order[0]['order_status']])
+                                                    order[0]['item'],
+                                                    order[0]['price'],
+                                                    order[0]['create_time'],
+                                                    order_status[order[0]['order_status']])
     bot.send_message(chat_id=update.message.from_user.id, text=send_msg)
     if tele_id != None:
         bot.send_message(chat_id=tele_id, text=send_msg)

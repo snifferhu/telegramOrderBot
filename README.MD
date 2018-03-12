@@ -33,6 +33,6 @@ fix bugs
 **Done Task**
 -------------------------
 |Task|Date|
-|:------|:--------------:|
+|:------|--------------:|
 |balance to bal|2018-3-9 17:44:33|
 |cancel from single to multi play|2018-3-12 16:42:08|

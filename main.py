@@ -9,7 +9,6 @@ logging.basicConfig(
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater
 
-from handlers.help import handler as help_handle
 from handlers import error
 from handlers import *
 import handlers
@@ -29,7 +28,6 @@ def autoLoadingHandles(dispatcher):
             logger.info('loading handle:' + handle)
             dispatcher.add_handler(eval(handle + '.handler'))
         dispatcher.add_error_handler(error.handle)
-        dispatcher.add_handler(MessageHandler(Filters.command, help_handle))#unknown handle logic
 
 
 def dispatcher_start(updater):

@@ -7,8 +7,8 @@ __all__ = [
     'menu',
     'll',
     'cancel',
-    'orderList',
-    'ol',
+    'orderList', 'ol',
     'order',
+    'balanceList', 'bl',
     'unknown',
 ]

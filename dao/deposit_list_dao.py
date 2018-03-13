@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
+from util.common import log_stream_handler
 
+# 将定义好的console日志handler添加到root logger
+logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
 from util.mysqlDB import DataBase
@@ -17,10 +20,11 @@ def insert(**kwargs):
     )
 
 
-def select_by_teleId(teleId):
-    logger.info("select_by_teleId %s", teleId)
+def select_by_teleId(teleId, page=0):
+    logger.info("select_by_teleId %s %s", teleId, page)
     return dataBase.query(
-        'select * from deposit_list where tele_id = %s', [teleId]
+        'select * from deposit_list where tele_id = %s order by create_time desc limit 10 offset %s',
+        [teleId, int(page) * 10]
     )
 
 #

@@ -23,7 +23,6 @@ new commands
 
 change commands 
 - over
-- balanceList to bl
 
 fix bugs
 - orderList page index issue
@@ -37,3 +36,4 @@ fix bugs
 |cancel from single to multi play|2018-3-12 16:42:08|
 |orderList to ol|2018-3-12 18:34:47|
 |order|2018-3-13 13:37:39|
+|balanceList to bl|2018-3-13 14:55:02|

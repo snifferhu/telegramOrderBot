@@ -46,7 +46,14 @@ null_notice_send_text = '''
 '''
 
 status_note_msg = '''
-单号<{0}>，已取消
+单号<{0}>，已删除
+'''
+
+bal_title_msg = '''
+金额\t前\t后\t时间
+'''
+bal_info_msg = '''
+{0}\t{1}\t{2}\t{3}
 '''
 
 order_title_msg = '''
@@ -58,10 +65,9 @@ order_info_msg = '''
 '''
 
 order_detail_msg = '''
-大佬，{0}
+大佬，<{0}>
 订单为：{1}
-金额为：{2}
-订单号：<{3}>
+金额为：{2}\n订单号：{3}
 '''
 
 order_notice_msg = '''格式错误
@@ -78,6 +84,18 @@ member_cnt_find_text = '''
 
 deposit_notice_text = '''
 /cancel or [no]#[price]
+'''
+
+balance_list_notice_msg = '''
+输入参数，格式错误
+示例：/balanceList [页码]\tor /bl [页码] 
+示范：/balanceList 1\t/bl 1
+'''
+
+order_list_notice_msg = '''
+输入参数，格式错误
+示例：/orderList [页码]\tor /ol [页码] 
+示范：/orderList 1\tor /ol 1
 '''
 
 help_send_text = '''
@@ -130,3 +148,13 @@ help_send_text_3 = '''
 '''
 
 order_status = {"0": "init", "1": "cancel", "2": "over", "3": "received"}
+
+
+def log_stream_handler():
+    # 定义一个Handler打印INFO及以上级别的日志到sys.stderr
+    console = logging.StreamHandler()
+    console.setLevel(logging.INFO)
+    # 设置日志打印格式
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console.setFormatter(formatter)
+    return console

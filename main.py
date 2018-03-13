@@ -6,7 +6,14 @@ logging.basicConfig(
     level=logging.INFO,
     filename='./log/access_{0}.log'.format(str(time.time())[:6]),
     filemode='a')
-
+# 定义一个Handler打印INFO及以上级别的日志到sys.stderr
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+# 设置日志打印格式
+formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+console.setFormatter(formatter)
+# 将定义好的console日志handler添加到root logger
+logging.getLogger(__name__).addHandler(console)
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater
 

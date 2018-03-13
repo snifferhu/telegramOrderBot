@@ -13,7 +13,7 @@ def insert(**kwargs):
     logger.info("insert %s", kwargs)
     dataBase.execute(
         'insert into order_info (id,member_id,nick_name,price,item,order_status) values (%s,%s,%s,%s,%s,%s)',
-        (kwargs['order_id'], kwargs['tele_id'], kwargs['first_name'], kwargs['price'], kwargs['first_name'], '0')
+        (kwargs['order_id'], kwargs['tele_id'], kwargs['first_name'], kwargs['price'], kwargs['item'], '0')
     )
 
 

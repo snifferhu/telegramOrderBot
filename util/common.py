@@ -46,16 +46,27 @@ null_notice_send_text = '''
 '''
 
 status_note_msg = '''
-单号<{0}>，已删除
+单号<{0}>，已取消
 '''
 
-order_title_mgs = '''
+order_title_msg = '''
 单号\t详情\t金额\t下单时间\t状态
 '''
 
-order_info_mgs = '''
+order_info_msg = '''
 {0}\t<{1}>\t{2}\t{3}\t{4}
 '''
+
+order_detail_msg = '''
+大佬，{0}
+订单为：{1}
+金额为：{2}
+订单号：<{3}>
+'''
+
+order_notice_msg = '''格式错误
+示例：/order [订单信息]#[金额] 
+示范：/order A1 B1 C1#160'''
 
 role_send_text = '''
 此功能仅限管理员使用，如有疑问请及时联系管理员

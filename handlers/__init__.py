@@ -1,1 +1,14 @@
-__all__ = ['start', 'balance', 'bal', 'deposit', 'help', 'menu', 'll', 'cancel', 'orderList', 'ol', 'unknown']
+__all__ = [
+    'start',
+    'balance',
+    'bal',
+    'deposit',
+    'help',
+    'menu',
+    'll',
+    'cancel',
+    'orderList',
+    'ol',
+    'order',
+    'unknown',
+]

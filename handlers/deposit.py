@@ -29,16 +29,17 @@ def doing(bot, update):
     cmd, text = parse_cmd(update.message.text)
     id, price = text.split("#")
     member = member_service.select_by_id(id)
+    logger.info("member:%s", member)
     if len(member) == 0:
         update.message.reply_text()
         return ConversationHandler.END
     member = member_service.update_amount(tele_id=member[0]['tele_id'], price=price, bef=member[0]['amout'])
     from_user = update.message.from_user
     bot.send_message(chat_id=from_user.id,
-                     text=balance_send_text.format(member[0]['nickName'].encode("utf-8"),
+                     text=balance_send_text.format(member[0]['nickName'],
                                                    member[0]['amout'],
                                                    member[0]['id']))
-    send_text = "管理员为您充值：{0}\n".format(price) + balance_send_text.format(member[0]['nickName'].encode("utf-8"),
+    send_text = "管理员为您充值：{0}\n".format(price) + balance_send_text.format(member[0]['nickName'],
                                                                          member[0]['amout'],
                                                                          member[0]['id'])
     bot.send_message(chat_id=member[0]['tele_id'],

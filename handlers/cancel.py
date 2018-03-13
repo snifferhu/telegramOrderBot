@@ -7,8 +7,8 @@ from util.common import parse_cmd
 from util.common import cancel_notice_text
 from util.common import null_notice_send_text
 from util.common import status_note_msg
-from util.common import order_title_mgs
-from util.common import order_info_mgs
+from util.common import order_title_msg
+from util.common import order_info_msg
 from util.common import order_status
 from dao import order_info_dao
 from service import member_service
@@ -23,7 +23,7 @@ def handle(bot, update):
     if text == None or len(text) == 0:
         update.message.reply_text(cancel_notice_text)
         return
-    send_msg = "" + order_title_mgs
+    send_msg = "" + order_title_msg
     tele_id = None
     for order_id in text.strip().split(' '):
         order = order_info_dao.select_by_id(order_id)
@@ -36,7 +36,7 @@ def handle(bot, update):
             bot.send_message(chat_id=from_user.id, text=status_note_msg.format(order_id))
             continue
         if order[0]['order_status'] == '0':
-            order_info_dao.update_status(status='2', id=order_id)
+            order_info_dao.update_status(status='1', id=order_id)
         if order[0]['order_status'] == "2" and from_user.id == 427009122:
             member = member_service.select_by_tele_id(order[0]['member_id'])
             member_service.update_amount(order[0]['member_id'], order[0]['price'], member[0]['amout'])
@@ -50,7 +50,7 @@ def handle(bot, update):
 
         order = order_info_dao.select_by_id(order_id)
         logging.info("cancel orders:{0}".format(order))
-        send_msg = send_msg + order_info_mgs.format(order[0]['id'],
+        send_msg = send_msg + order_info_msg.format(order[0]['id'],
                                                     order[0]['item'],
                                                     order[0]['price'],
                                                     order[0]['create_time'],

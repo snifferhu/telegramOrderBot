@@ -21,12 +21,12 @@ def handle(bot, update):
         bot.send_message(chat_id=from_user.id,
                          text='输入参数，格式错误\n示例：/orderList [页码] \n示范：/orderList 1')
         return
-    from util.common import order_title_mgs
-    from util.common import order_info_mgs
+    from util.common import order_title_msg
+    from util.common import order_info_msg
     from util.common import order_status
-    send_msg = "" + order_title_mgs
+    send_msg = "" + order_title_msg
     for order in orders:
-        send_msg = send_msg + order_info_mgs.format(order['id'],
+        send_msg = send_msg + order_info_msg.format(order['id'],
                                                     order['item'],
                                                     order['price'],
                                                     order['create_time'],

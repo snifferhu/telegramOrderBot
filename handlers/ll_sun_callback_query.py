@@ -6,7 +6,6 @@ from util.common import log_stream_handler
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
-from util.common import parse_cmd
 from util.common import order_status
 from dao import order_info_dao
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
@@ -29,13 +28,11 @@ keyboard = [[InlineKeyboardButton("Init", callback_data='0'),
             ]
 
 
-def ll(bot, update):
-    logger.info("chatId: %s,first_name: %s,text: %s",
-                update.message.chat_id,
-                update.message.from_user.first_name,
-                update.message.text)
+def callback_query(bot, update):
+    query = update.callback_query
+    logger.info(query)
     reply_markup = InlineKeyboardMarkup(keyboard)
-    orders = order_info_dao.select_by_status("0")
+    orders = order_info_dao.select_by_status(query.data)
     from util.common import order_title_msg
     from util.common import order_info_msg
     send_msg = "" + order_title_msg
@@ -45,11 +42,15 @@ def ll(bot, update):
                                                     order['price'],
                                                     order['create_time'],
                                                     order_status[order['order_status']])
-    bot.send_message(chat_id=update.message.from_user.id, text=send_msg, reply_markup=reply_markup)
+    bot.edit_message_text(text=send_msg,
+                          chat_id=query.message.chat_id,
+                          message_id=query.message.message_id,
+                          reply_markup=reply_markup)
+    # bot.send_message(chat_id=update.message.from_user.id, text=send_msg, reply_markup=reply_markup)
 
 
-command = 'll'
+command = 'callback_query'
 
-from telegram.ext import CommandHandler
+from telegram.ext import CallbackQueryHandler
 
-handler = CommandHandler(command, ll)
+handler = CallbackQueryHandler(callback_query)

@@ -39,7 +39,10 @@ balance_send_text = '''
 '''
 
 cancel_notice_text = '''
-示例：/cancel [单号] [单号] \n示范：/cancel 1519106642s 1519106643s'''
+格式错误
+示例：/cancel [单号] [单号] 
+示范：/cancel 1519106642s 1519106643s
+'''
 
 null_notice_send_text = '''
 单号<{0}>，不存在
@@ -158,3 +161,8 @@ def log_stream_handler():
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     console.setFormatter(formatter)
     return console
+
+
+driver_start_text = '''
+大佬<{0}>，可欲开车？
+'''

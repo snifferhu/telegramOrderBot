@@ -33,6 +33,12 @@ def select_by_id(id):
     )
 
 
+def select_by_cui():
+    logger.info("select_by_cui %s", 0)
+    return dataBase.query(
+        'select * from member where amout < %s', [0]
+    )
+
 def update_amout(price, tele_id, bef):
     logger.info("update_amout %s %s %s", price, tele_id, bef)
     dataBase.execute(

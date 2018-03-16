@@ -25,6 +25,7 @@ def handle(bot, update):
         member_dao.insert(username=from_user.username,
                           first_name=from_user.first_name,
                           tele_id=from_user.id)
+        member = member_dao.select_by_teleId(from_user.id)
 
     cmd, text = parse_cmd(update.message.text)
     logger.info("%s  %s", cmd, text)

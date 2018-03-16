@@ -20,12 +20,20 @@ def insert(**kwargs):
     )
 
 
-def select_by_teleId(teleId, page=0):
+def select_by_teleId(teleId, page=1):
     logger.info("select_by_teleId %s", teleId)
     return dataBase.query(
         'select * from order_info where member_id = %s order by create_time desc limit 10 offset %s',
-        [teleId, (int(page)) * 10]
+        [teleId, (int(page) - 1) * 10]
     )
+
+
+def select_count_teleId(teleId):
+    logger.info("select_by_teleId %s", teleId)
+    return dataBase.query(
+        'select count(*) from order_info where member_id = %s',
+        [teleId]
+    )[0]
 
 
 def select_by_id(id):
@@ -35,11 +43,11 @@ def select_by_id(id):
     )
 
 
-def select_by_status(status, page=0):
+def select_by_status(status, page=1):
     logger.info("select_by_status %s", status)
     return dataBase.query(
         'select * from order_info where order_status = %s order by nick_name,create_time desc limit 10 offset %s',
-        [status, int(page) * 10]
+        [status, (int(page) - 1) * 10]
     )
 
 

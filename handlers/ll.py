@@ -6,12 +6,8 @@ from util.common import log_stream_handler
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
-from util.common import parse_cmd
-from util.common import order_status
-from dao import order_info_dao
+from service import order_service
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-
-STATUS, PAGE = range(2)
 
 prefix = 'll'
 
@@ -46,7 +42,7 @@ def ll(bot, update):
                 update.message.from_user.first_name,
                 update.message.text)
 
-    from service import order_service
+
     count = order_service.select_count_status("0")
     send_msg = order_service.select_by_status("0")
 

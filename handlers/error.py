@@ -12,7 +12,10 @@ from util.common import timeout_send_text
 
 def handle(bot, update, error):
     """Log Errors caused by Updates."""
-    logger.warning('Update "%s" caused error "%s"', update, error)
+    try:
+        logger.warning('Update "%s" caused error "%s"', update, error)
+    except UnicodeEncodeError as uee:
+        logger.warning('Update "%s" caused error "%s"', update, error.encode('utf-8'))
     if isinstance(error, Unauthorized):
         update.message.reply_text(unauthorized_send_text)
         logger.warning('Update "%s" caused error "%s"', update, error)

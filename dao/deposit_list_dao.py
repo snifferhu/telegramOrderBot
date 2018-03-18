@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 from util.mysqlDB import DataBase
 from util.core_config import db_config
+from util.common import page_number
 
 dataBase = DataBase(**db_config)
 
@@ -23,8 +24,8 @@ def insert(**kwargs):
 def select_by_teleId(teleId, page=0):
     logger.info("select_by_teleId %s %s", teleId, page)
     return dataBase.query(
-        'select * from deposit_list where tele_id = %s order by create_time desc limit 10 offset %s',
-        [teleId, int(page) * 10]
+        'select * from deposit_list where tele_id = %s order by create_time desc limit %s offset %s',
+        [teleId, page_number, int(page) * page_number]
     )
 
 #

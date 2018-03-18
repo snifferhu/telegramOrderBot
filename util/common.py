@@ -60,21 +60,22 @@ bal_title_msg = '''
 金额\t前\t后\t时间
 '''
 bal_info_msg = '''
-{0}\t{1}\t{2}\t{3}
-'''
+{0}\t{1}\t{2}\t{3}'''
 
 order_title_msg = '''
-单号\t详情\t金额\t下单时间\t状态
-'''
+编号\t详情\t金额\t状态\t下单时间'''
+
+ll_title_msg = '''
+户名\t编号\t详情\t金额\t下单时间'''
 
 order_info_msg = '''
-{0}\t<{1}>\t{2}\t{3}\t{4}
-'''
+{0}\t<{1}>\t{2}\t{3}\t{4}'''
 
 order_detail_msg = '''
 大佬，<{0}>
 订单为：{1}
-金额为：{2}\n订单号：{3}
+金额为：{2}
+订单号：{3}
 '''
 
 order_notice_msg = '''格式错误
@@ -170,3 +171,5 @@ def log_stream_handler():
 driver_start_text = '''
 大佬<{0}>，可欲开车？
 '''
+
+page_number = 10

@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 from util.mysqlDB import DataBase
 from util.core_config import db_config
-
+from util.common import page_number
 dataBase = DataBase(**db_config)
 
 
@@ -23,8 +23,8 @@ def insert(**kwargs):
 def select_by_teleId(teleId, page=1):
     logger.info("select_by_teleId %s", teleId)
     return dataBase.query(
-        'select * from order_info where member_id = %s order by create_time desc limit 10 offset %s',
-        [teleId, (int(page) - 1) * 10]
+        'select * from order_info where member_id = %s order by create_time desc limit %s offset %s',
+        [teleId,page_number, (int(page) - 1) * page_number]
     )
 
 
@@ -46,8 +46,8 @@ def select_by_id(id):
 def select_by_status(status, page=1):
     logger.info("select_by_status %s", status)
     return dataBase.query(
-        'select * from order_info where order_status = %s order by nick_name,create_time desc limit 10 offset %s',
-        [status, (int(page) - 1) * 10]
+        'select * from order_info where order_status = %s order by create_time desc limit %s offset %s',
+        [status,page_number, (int(page) - 1) * page_number]
     )
 
 

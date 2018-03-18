@@ -33,7 +33,17 @@ def callback_query(bot, update):
     query_params = query.data.split("_")
     from handlers.callback import ll_callback
     if query_params[0] == "ll":
-        ll_callback.exec(query_params, bot, update)
+        send_msg, reply_markup = ll_callback.exec(query_params, bot, update)
+    elif query_params[0] == "bl":
+        send_msg, reply_markup = ll_callback.exec(query_params, bot, update)
+    elif query_params[0] == "ol":
+        send_msg, reply_markup = ll_callback.exec(query_params, bot, update)
+    else:
+        send_msg, reply_markup = default(bot, update)
+    bot.edit_message_text(text=send_msg,
+                          chat_id=query.message.chat_id,
+                          message_id=query.message.message_id,
+                          reply_markup=reply_markup)
     # orders = order_info_dao.select_by_status(query.data)
     # from util.common import order_title_msg
     # from util.common import order_info_msg
@@ -49,6 +59,10 @@ def callback_query(bot, update):
     #                       message_id=query.message.message_id,
     #                       reply_markup=reply_markup)
     # bot.send_message(chat_id=update.message.from_user.id, text=send_msg, reply_markup=reply_markup)
+
+
+def default(bot, update):
+    return '参数有误，请及时联系管理员.', InlineKeyboardMarkup([])
 
 
 command = 'callback_query'

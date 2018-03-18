@@ -67,3 +67,11 @@ def update_status(**kwargs):
         'update order_info set order_status = %s where id = %s',
         (kwargs['status'], kwargs['id'])
     )
+
+
+def select_init_driver_id(driver_id):
+    logger.info("select_init_driver_id %s", driver_id)
+    return dataBase.query(
+        'select * from order_info where order_status = 0 and driver_id = %s order by nick_name,create_time',
+        [driver_id]
+    )

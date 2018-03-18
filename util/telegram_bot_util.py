@@ -4,6 +4,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import logging
 from util.common import log_stream_handler
 from util.common import page_number
+
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
@@ -38,9 +39,10 @@ def create_page_button_list(count, prefix, pageIndex=1, status="0"):
     else:
         button_list = [create_pre_button(prefix, pageIndex, status)]
     page_count = int(count / page_number) + (1 if count % page_number > 0 else 0)
-    tmp_page_flag = pageIndex + 3 if pageIndex + 3 <= page_count else page_count
-    logger.info("create_page_button_list page_count %s,tmp_page_flag %s", page_count, tmp_page_flag)
-    for page in range(tmp_page_flag - 3, tmp_page_flag + 1):
+    end_page_flag = pageIndex + 3 if pageIndex + 3 <= page_count else page_count
+    start_page_flag = end_page_flag - 3 if end_page_flag - 3 > 0 else 1
+    logger.info("create_page_button_list page_count %s,end_page_flag %s", page_count, end_page_flag)
+    for page in range(start_page_flag, end_page_flag + 1):
         data = "{0}_page_{1}_{2}".format(prefix, page, status)
         if page == pageIndex:
             page = "[ {0} ]".format(page)
@@ -48,6 +50,7 @@ def create_page_button_list(count, prefix, pageIndex=1, status="0"):
     if page_count != pageIndex:
         button_list.append(create_next_button(prefix, pageIndex, status))
     return button_list
+
 
 def default():
     return '参数有误，请及时联系管理员.', []

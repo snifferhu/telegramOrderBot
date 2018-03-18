@@ -31,12 +31,16 @@ def handle(bot, update):
     cmd, text = parse_cmd(update.message.text)
     logger.info("%s  %s", cmd, text)
 
+    order_info = update.message.text.replace("/order ", "").split("#")
     # 入参校验
-    if text == None or len(text) == 0 or text.find('#') == -1:
+    if text == None or len(text) == 0 or text.find('#') == -1 or (len(order_info) != 2):
         update.message.reply_text(order_notice_msg)
         return
-    order_info = update.message.text.replace("/order ", "").split("#")
-    if (len(order_info) != 2) or (order_info[1].isdigit() == False):
+
+    item, price = order_info
+    item = item.strip()
+    price = price.strip()
+    if price.isdigit() == False:
         update.message.reply_text(order_notice_msg)
         return
 
@@ -47,14 +51,14 @@ def handle(bot, update):
     order_info_dao.insert(order_id=order_id,
                           tele_id=from_user.id,
                           first_name=member[0]['nickName'],
-                          price=order_info[1],
-                          item=order_info[0],
+                          price=price,
+                          item=item,
                           driver_id=member[0]['driver_id'])
 
     bot.send_message(chat_id=from_user.id,
                      text=order_detail_msg.format(from_user.first_name,
-                                                  order_info[0],
-                                                  order_info[1],
+                                                  item,
+                                                  price,
                                                   order_id, member[0]['driver_id'])
                      )
 

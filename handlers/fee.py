@@ -41,7 +41,7 @@ def handle(bot, update):
                                  )
 
     else:
-        bot.send_message(chat_id=update.message.chat_id, text=driver_role_notice_text)
+        update.message.reply_text(chat_id=update.message.chat_id, text=driver_role_notice_text)
 
 
 command = 'fee'

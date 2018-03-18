@@ -18,9 +18,9 @@ def update_amount(tele_id, price, driver_tele_id):
         balance = insert_without_check(tele_id, driver_tele_id)
     deposit_list_dao.insert(tele_id=tele_id, price=price, bef=balance[0]["amount"])
     balance_dao.update_amount(tele_id=tele_id, price=price, bef=balance[0]["amount"], driver_tele_id=driver_tele_id)
-    member = member_dao.select_by_teleId(tele_id)
-    logging.info(member)
-    return member
+    balance = balance_dao.select_by_teleId(tele_id, driver_tele_id)
+    logging.info(balance)
+    return balance[0]
 
 
 def insert(tele_id, driver_tele_id):

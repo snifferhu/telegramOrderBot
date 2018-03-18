@@ -82,6 +82,12 @@ order_info_msg = '''
 {0}\t<{1}>\t{2}\t{3}\n{4}
 '''
 
+over_title_msg = '''
+户名\t详情\t金额'''
+
+over_info_msg = '''
+{0}\t<{1}>\t{2}'''
+
 order_detail_msg = '''
 大佬，<{0}>
 订单为：{1}
@@ -93,6 +99,9 @@ order_detail_msg = '''
 order_notice_msg = '''格式错误
 示例：/order [订单信息]#[金额] 
 示范：/order A1 B1 C1#160'''
+
+order_over_notice_msg = '''
+尚无订单'''
 
 role_send_text = '''
 此功能仅限管理员使用，如有疑问请及时联系管理员

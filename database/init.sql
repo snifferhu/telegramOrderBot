@@ -83,3 +83,17 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+CREATE TABLE fate.balance_info
+(
+    id INT PRIMARY KEY,
+    tele_id VARCHAR(50),
+    nick_name VARCHAR(50),
+    amount DECIMAL(9,3),
+    driver_id INT,
+    driver_tele_id VARCHAR(50),
+    create_time timestamp default CURRENT_TIMESTAMP not null,
+	  update_time timestamp default CURRENT_TIMESTAMP not null
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;

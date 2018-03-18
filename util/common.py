@@ -77,6 +77,7 @@ order_detail_msg = '''
 订单为：{1}
 金额为：{2}
 订单号：{3}
+车牌号：{4}
 '''
 
 order_notice_msg = '''格式错误
@@ -171,6 +172,26 @@ def log_stream_handler():
 
 driver_start_text = '''
 大佬<{0}>，可欲开车？
+'''
+
+driver_role_notice_text = '''
+此功能仅为司机开放，如欲加入司机团队。
+请 /driver
+'''
+
+follow_notice_msg = '''
+输入参数，格式错误
+示例：/follow [车牌号]
+示范：/follow 1
+'''
+
+follow_null_notice_msg = '''
+您所提供的车牌号，没找到对应的司机
+'''
+
+follow_send_msg = '''
+滴滴滴，学生卡 -> {0}
+成功上 -> {1} 车
 '''
 
 page_number = 10

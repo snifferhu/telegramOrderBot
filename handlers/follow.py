@@ -7,9 +7,8 @@ logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
 from util.common import parse_cmd
-from util.common import order_notice_msg
-from util.common import order_detail_msg
-from dao import order_info_dao
+from util.common import follow_notice_msg, follow_null_notice_msg, follow_send_msg
+from dao import driver_dao
 from dao import member_dao
 
 
@@ -32,34 +31,31 @@ def handle(bot, update):
     logger.info("%s  %s", cmd, text)
 
     # 入参校验
-    if text == None or len(text) == 0 or text.find('#') == -1:
-        update.message.reply_text(order_notice_msg)
-        return
-    order_info = update.message.text.replace("/order ", "").split("#")
-    if (len(order_info) != 2) or (order_info[1].isdigit() == False):
-        update.message.reply_text(order_notice_msg)
+    if text == None or len(text) == 0 or text.isdigit() == False:
+        update.message.reply_text(follow_notice_msg)
         return
 
+    driver = driver_dao.select_by_id(text)
+    if (len(driver) == 0):
+        update.message.reply_text(follow_null_notice_msg)
+        return
+
+    driver_info = member_dao.select_by_teleId(driver[0]['tele_id'])
     # 单号生成
     order_id = str(int(time.time()))[4:] + from_user.first_name[:1]
-    logging.info("order id: %s", order_id)
-
-    order_info_dao.insert(order_id=order_id,
-                          tele_id=from_user.id,
-                          first_name=member[0]['nickName'],
-                          price=order_info[1],
-                          item=order_info[0],
-                          driver_id=member[0]['driver_id'])
+    logging.info("follow  %s ,%s", member[0], driver_info[0])
 
     bot.send_message(chat_id=from_user.id,
-                     text=order_detail_msg.format(from_user.first_name,
-                                                  order_info[0],
-                                                  order_info[1],
-                                                  order_id, member[0]['driver_id'])
+                     text=follow_send_msg.format(from_user.first_name,
+                                                 driver_info[0]['nickName'])
+                     )
+    bot.send_message(chat_id=driver[0]['tele_id'],
+                     text=follow_send_msg.format(from_user.first_name,
+                                                 driver_info[0]['nickName'])
                      )
 
 
-command = 'order'
+command = 'follow'
 
 from telegram.ext import CommandHandler
 

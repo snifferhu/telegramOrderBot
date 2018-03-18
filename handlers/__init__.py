@@ -11,7 +11,8 @@ __all__ = [
     'order',
     'balanceList', 'bl',
     'driver',
-    'cui',
+    'fee',
+    'follow',
     'callback_query',
     'unknown',
 ]

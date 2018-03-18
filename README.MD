@@ -16,10 +16,10 @@ We are now collecting Telegram Order Bot user info in order to help us to improv
 **Feature schedule**
 -------------------------
 new commands 
-
+- rece
 
 change commands 
-- over
+
 
 **Done Task**
 -------------------------

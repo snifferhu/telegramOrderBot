@@ -5,12 +5,9 @@ from util.common import log_stream_handler
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
-
-from util.common import order_status
-from dao import order_info_dao
+from handlers.callback import ll_callback,ol_callback
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-
-STATUS, PAGE = range(2)
+from util.telegram_bot_util import default
 
 pre_button = InlineKeyboardButton("pre", callback_data='pre')
 
@@ -31,38 +28,20 @@ keyboard = [[InlineKeyboardButton("Init", callback_data='0'),
 def callback_query(bot, update):
     query = update.callback_query
     query_params = query.data.split("_")
-    from handlers.callback import ll_callback
+
     if query_params[0] == "ll":
-        send_msg, reply_markup = ll_callback.exec(query_params, bot, update)
+        send_msg, keyboard_list = ll_callback.exec(query_params)
     elif query_params[0] == "bl":
-        send_msg, reply_markup = ll_callback.exec(query_params, bot, update)
+        send_msg, keyboard_list = ll_callback.exec(query_params)
     elif query_params[0] == "ol":
-        send_msg, reply_markup = ll_callback.exec(query_params, bot, update)
+        send_msg, keyboard_list = ol_callback.exec(query_params)
     else:
-        send_msg, reply_markup = default(bot, update)
+        send_msg, keyboard_list = default()
+    reply_markup = InlineKeyboardMarkup(keyboard_list)
     bot.edit_message_text(text=send_msg,
                           chat_id=query.message.chat_id,
                           message_id=query.message.message_id,
                           reply_markup=reply_markup)
-    # orders = order_info_dao.select_by_status(query.data)
-    # from util.common import order_title_msg
-    # from util.common import order_info_msg
-    # send_msg = "" + order_title_msg
-    # for order in orders:
-    #     send_msg = send_msg + order_info_msg.format(order['id'],
-    #                                                 order['item'],
-    #                                                 order['price'],
-    #                                                 order['create_time'],
-    #                                                 order_status[order['order_status']])
-    # bot.edit_message_text(text=send_msg,
-    #                       chat_id=query.message.chat_id,
-    #                       message_id=query.message.message_id,
-    #                       reply_markup=reply_markup)
-    # bot.send_message(chat_id=update.message.from_user.id, text=send_msg, reply_markup=reply_markup)
-
-
-def default(bot, update):
-    return '参数有误，请及时联系管理员.', InlineKeyboardMarkup([])
 
 
 command = 'callback_query'

@@ -69,7 +69,8 @@ ll_title_msg = '''
 户名\t编号\t详情\t金额\t下单时间'''
 
 order_info_msg = '''
-{0}\t<{1}>\t{2}\t{3}\t{4}'''
+{0}\t<{1}>\t{2}\t{3}\n{4}
+'''
 
 order_detail_msg = '''
 大佬，<{0}>

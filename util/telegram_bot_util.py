@@ -27,16 +27,6 @@ def create_close_button(prefix):
     return [InlineKeyboardButton("over", callback_data="{0}_close".format(prefix))]
 
 
-# def create_page_button_list(bef, end, prefix, status="0"):
-#     if bef == 1:
-#         button_list = []
-#     else:
-#         button_list = [create_pre_button(prefix, )]
-#     for page in range(bef, end):
-#         button_list.append(create_button(page, "%s_page_%s_%s".format(prefix, page, status)))
-#     return button_list
-
-
 def create_page_button_list(count, prefix, pageIndex=1, status="0"):
     logger.info("create_page_button_list(count=%s, prefix=%s, pageIndex=%s, status=%s)",
                 count,
@@ -58,3 +48,10 @@ def create_page_button_list(count, prefix, pageIndex=1, status="0"):
     if page_count != pageIndex:
         button_list.append(create_next_button(prefix, pageIndex, status))
     return button_list
+
+def default():
+    return '参数有误，请及时联系管理员.', []
+
+
+def close():
+    return '再见! 期待下一次的合作.', []

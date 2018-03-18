@@ -7,35 +7,41 @@ logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
 from service import order_service
-from handlers.ll import gen_status_keyboard
-from handlers.ll import prefix
-from telegram import InlineKeyboardMarkup
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from util.telegram_bot_util import create_page_button_list
-from handlers.ll import close_button
 from util.common import page_number
+from util.telegram_bot_util import close
 
-def exec(query_params, bot, update):
+prefix = 'll'
+
+close_button = [InlineKeyboardButton("close", callback_data='ll_close')]
+
+
+def gen_status_keyboard():
+    return [InlineKeyboardButton("Init", callback_data='ll_status_0'),
+            InlineKeyboardButton("Cancel", callback_data='ll_status_1'),
+            InlineKeyboardButton("Over", callback_data='ll_status_2'),
+            InlineKeyboardButton("Receive", callback_data='ll_status_3')]
+
+
+def exec(query_params):
     logger.info(query_params)
     if query_params[1] == "status":
         status = query_params[2]
         current_page = 1
-        return page(status, current_page, bot, update)
+        return page(status, current_page)
     elif query_params[1] == "next" or query_params[1] == "page" or query_params[1] == "pre":
         status = query_params[3]
         current_page = int(query_params[2])
-        return page(status, current_page, bot, update)
+        return page(status, current_page)
     elif query_params[1] == "close":
-        return close(bot, update)
+        return close()
     else:
         from handlers.callback_query import default
-        return default(bot, update)
+        return default()
 
 
-def close(bot, update):
-    return '再见! 期待下一次的合作.', InlineKeyboardMarkup([])
-
-
-def page(status, current_page, bot, update):
+def page(status, current_page):
     count = order_service.select_count_status(status)
     send_msg = order_service.select_by_status(status, current_page)
 
@@ -47,5 +53,4 @@ def page(status, current_page, bot, update):
         keyboard_page = create_page_button_list(count, prefix, current_page, status)
         keyboard_list.append(keyboard_page)
     keyboard_list.append(close_button)
-    reply_markup = InlineKeyboardMarkup(keyboard_list)
-    return send_msg, reply_markup
+    return send_msg, keyboard_list

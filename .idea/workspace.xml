@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3751710b-37af-4456-9767-2e30cf3b9a14" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/dao/deposit_list_dao.py" afterPath="$PROJECT_DIR$/dao/deposit_list_dao.py" />
-      <change beforePath="$PROJECT_DIR$/dao/order_info_dao.py" afterPath="$PROJECT_DIR$/dao/order_info_dao.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/handlers/callback/ol_callback.py" />
       <change beforePath="$PROJECT_DIR$/handlers/callback/ll_callback.py" afterPath="$PROJECT_DIR$/handlers/callback/ll_callback.py" />
       <change beforePath="$PROJECT_DIR$/handlers/callback_query.py" afterPath="$PROJECT_DIR$/handlers/callback_query.py" />
-      <change beforePath="$PROJECT_DIR$/handlers/error.py" afterPath="$PROJECT_DIR$/handlers/error.py" />
       <change beforePath="$PROJECT_DIR$/handlers/ll.py" afterPath="$PROJECT_DIR$/handlers/ll.py" />
       <change beforePath="$PROJECT_DIR$/handlers/orderList.py" afterPath="$PROJECT_DIR$/handlers/orderList.py" />
-      <change beforePath="$PROJECT_DIR$/service/order_service.py" afterPath="$PROJECT_DIR$/service/order_service.py" />
       <change beforePath="$PROJECT_DIR$/util/common.py" afterPath="$PROJECT_DIR$/util/common.py" />
+      <change beforePath="$PROJECT_DIR$/util/telegram_bot_util.py" afterPath="$PROJECT_DIR$/util/telegram_bot_util.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,36 +19,95 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/telegramOrderBot$mysqlDB__1_.coverage" NAME="mysqlDB (1) Coverage Results" MODIFIED="1521256633976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/telegramOrderBot$main.coverage" NAME="main Coverage Results" MODIFIED="1521354013198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/telegramOrderBot$main.coverage" NAME="main Coverage Results" MODIFIED="1521356215689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="deposit_list_dao.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/deposit_list_dao.py">
+      <file leaf-file-name="callback_query.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/handlers/callback_query.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="35" />
+            <state relative-caret-position="93">
+              <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
               <folding>
-                <marker date="1521354013189" expanded="true" signature="455:524" ph="insert into deposit_list... " />
-                <marker date="1521354013189" expanded="true" signature="772:862" ph="select * fro... deposit_list" />
+                <element signature="e#24#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order_info_dao.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dao/order_info_dao.py">
+      <file leaf-file-name="ll_callback.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/handlers/callback/ll_callback.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="33">
+              <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ol_callback.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/handlers/callback/ol_callback.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="telegram_bot_util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util/telegram_bot_util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-78">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
-                <marker date="1521354013186" expanded="true" signature="454:552" ph="insert into order_info... " />
-                <marker date="1521354013186" expanded="true" signature="792:882" ph="select * fro... order_info" />
-                <marker date="1521354013186" expanded="true" signature="1069:1121" ph="select count... order_info" />
-                <marker date="1521354013186" expanded="true" signature="1249:1287" ph="select * fro... order_info" />
-                <marker date="1521354013186" expanded="true" signature="1424:1517" ph="select * fro... order_info" />
-                <marker date="1521354013186" expanded="true" signature="1704:1759" ph="select count... order_info" />
-                <marker date="1521354013186" expanded="true" signature="1901:1954" ph="update order_info... " />
+                <element signature="e#24#87#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/util/common.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ll.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/handlers/ll.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+              <folding>
+                <element signature="e#24#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orderList.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/handlers/orderList.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#24#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order_service.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/order_service.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="38" column="38" lean-forward="true" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+              <folding>
+                <element signature="e#24#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,7 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>update_amount</find>
       <find>[0]['a</find>
       <find>menu_sleep_mutex</find>
       <find>t.isdi</find>
@@ -98,6 +153,7 @@
       <find>encode</find>
       <find>ll_</find>
       <find>10</find>
+      <find>gen_status_keyboard</find>
     </findStrings>
     <replaceStrings>
       <replace>logStreamHandler())</replace>
@@ -141,18 +197,19 @@
         <option value="$PROJECT_DIR$/util/core_config.py" />
         <option value="$PROJECT_DIR$/util/mysqlDB.py" />
         <option value="$PROJECT_DIR$/handlers/__init__.py" />
-        <option value="$PROJECT_DIR$/util/telegram_bot_util.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/handlers/error.py" />
-        <option value="$PROJECT_DIR$/handlers/ll.py" />
-        <option value="$PROJECT_DIR$/handlers/orderList.py" />
         <option value="$PROJECT_DIR$/service/order_service.py" />
-        <option value="$PROJECT_DIR$/handlers/callback/ll_callback.py" />
-        <option value="$PROJECT_DIR$/handlers/callback_query.py" />
-        <option value="$PROJECT_DIR$/util/common.py" />
         <option value="$PROJECT_DIR$/dao/deposit_list_dao.py" />
         <option value="$PROJECT_DIR$/dao/member_dao.py" />
         <option value="$PROJECT_DIR$/dao/order_info_dao.py" />
+        <option value="$PROJECT_DIR$/handlers/ll.py" />
+        <option value="$PROJECT_DIR$/handlers/orderList.py" />
+        <option value="$PROJECT_DIR$/util/telegram_bot_util.py" />
+        <option value="$PROJECT_DIR$/handlers/callback/ol_callback.py" />
+        <option value="$PROJECT_DIR$/handlers/callback/ll_callback.py" />
+        <option value="$PROJECT_DIR$/handlers/callback_query.py" />
+        <option value="$PROJECT_DIR$/util/common.py" />
       </list>
     </option>
   </component>
@@ -195,12 +252,18 @@
             <path>
               <item name="telegramOrderBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="telegramOrderBot" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="telegramOrderBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="telegramOrderBot" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
+              <item name="handlers" type="462c0819:PsiDirectoryNode" />
+              <item name="callback" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="telegramOrderBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="telegramOrderBot" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="telegramOrderBot" type="b2602c69:ProjectViewProjectNode" />
@@ -285,14 +348,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1280" height="720" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3621795" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3621795" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32702237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3349359" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1558966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18739903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -300,7 +364,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17420067" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27724358" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27724358" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -354,13 +418,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/handlers/cancel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="60" lean-forward="false" selection-start-line="4" selection-start-column="60" selection-end-line="4" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/handlers/unknown.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -479,6 +536,7 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="-333">
           <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="LogFileEditorProvider">
@@ -553,16 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/telegram_bot_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
-          <folding>
-            <element signature="e#24#87#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -579,14 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handlers/ol.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/handlers/error.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -595,77 +635,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/order_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="30" column="65" lean-forward="true" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log/access_152135.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="-16533">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handlers/ll.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="51" column="45" lean-forward="false" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handlers/orderList.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handlers/callback/ll_callback.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="54" selection-end-column="54" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handlers/callback_query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="174" column="11" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dao/deposit_list_dao.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="35" />
-          <folding>
-            <marker date="1521354013189" expanded="true" signature="455:524" ph="insert into deposit_list... " />
-            <marker date="1521354013189" expanded="true" signature="772:862" ph="select * fro... deposit_list" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -685,8 +658,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dao/order_info_dao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="56" column="39" lean-forward="true" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
           <folding>
             <marker date="1521354013186" expanded="true" signature="454:552" ph="insert into order_info... " />
             <marker date="1521354013186" expanded="true" signature="792:882" ph="select * fro... order_info" />
@@ -696,6 +669,99 @@
             <marker date="1521354013186" expanded="true" signature="1704:1759" ph="select count... order_info" />
             <marker date="1521354013186" expanded="true" signature="1901:1954" ph="update order_info... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/deposit_list_dao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <marker date="1521354013189" expanded="true" signature="455:524" ph="insert into deposit_list... " />
+            <marker date="1521354013189" expanded="true" signature="772:862" ph="select * fro... deposit_list" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers/ol.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers/ll.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers/orderList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/telegram_bot_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers/callback/ol_callback.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers/callback/ll_callback.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handlers/callback_query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/order_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="38" column="38" lean-forward="true" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

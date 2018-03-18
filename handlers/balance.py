@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 import logging
+
+from service import balance_service
 from util.common import log_stream_handler
+
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
-from util.common import balance_send_text
 from dao import member_dao
 
 
@@ -19,10 +21,9 @@ def handle(bot, update):
                           first_name=from_user.first_name,
                           tele_id=from_user.id)
         member = member_dao.select_by_teleId(from_user.id)
+    send_text = balance_service.select_all_by_tele_id(member[0])
     bot.send_message(chat_id=from_user.id,
-                     text=balance_send_text.format(member[0]['nickName'],
-                                                   member[0]['amout'],
-                                                   member[0]['id']))
+                     text=send_text)
 
 
 command = 'balance'

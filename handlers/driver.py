@@ -32,8 +32,12 @@ def doing(bot, update):
     cmd, text = parse_cmd(update.message.text)
     from_user = update.message.from_user
     logger.info(update.message.text)
+    if text == 'Yes':
+        send_text = ''
+    else:
+        send_text = ''
     bot.send_message(chat_id=from_user.id,
-                     text=text,
+                     text=send_text,
                      reply_markup=ReplyKeyboardRemove())
     return ConversationHandler.END
 

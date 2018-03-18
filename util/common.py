@@ -36,10 +36,20 @@ timeout_send_text = '''
 请求超时，请稍后！
 '''
 
+user_send_text = '''大佬：<{0}>
+编号：{1}
+'''
+
 balance_send_text = '''
 大佬：<{0}>
 余额：{1}
 编号：{2}
+司机车牌：{3}
+'''
+
+balance_all_send_text = '''
+余额：{0}
+司机车牌：{1}
 '''
 
 cancel_notice_text = '''
@@ -94,6 +104,11 @@ member_cnt_find_text = '''
 
 deposit_notice_text = '''
 /cancel or [no]#[price]
+'''
+
+deposit_send_text = '''
+司机：<{0}>
+为您充值：{1}
 '''
 
 balance_list_notice_msg = '''
@@ -177,6 +192,11 @@ driver_start_text = '''
 driver_role_notice_text = '''
 此功能仅为司机开放，如欲加入司机团队。
 请 /driver
+'''
+
+driver_yes_msg = '''
+司机 <{0}>
+您的车牌号为：{1}
 '''
 
 follow_notice_msg = '''

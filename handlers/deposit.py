@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-from util.common import log_stream_handler
+from util.common import log_stream_handler, deposit_send_text
 
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 from util.common import role_send_text
 from util.common import parse_cmd
-from service import member_service
+from service import member_service, balance_service
 from util.common import balance_send_text
 from util.common import deposit_notice_text
 
@@ -29,30 +29,34 @@ def deposit(bot, update):
 
 
 def doing(bot, update):
-    cmd, text = parse_cmd(update.message.text)
-    if text.find('#') == -1:
-        update.message.reply_text()
-        return ConversationHandler.END
+    try:
+        from_user = update.message.from_user
+        cmd, text = parse_cmd(update.message.text)
+        if text.find('#') == -1:
+            update.message.reply_text()
+            return ConversationHandler.END
 
-    id, price = text.split("#")
-    member = member_service.select_by_id(id)
-    logger.info("member:%s", member)
-    if len(member) == 0:
-        update.message.reply_text()
+        id, price = text.split("#")
+        member = member_service.select_by_id(id)
+        logger.info("member:%s", member)
+        if len(member) == 0:
+            update.message.reply_text()
+            return ConversationHandler.END
+        balance_service.update_amount(tele_id=member[0]["tele_id"],
+                                      price=price,
+                                      driver_tele_id=from_user.id)
+
+        send_text = balance_service.select_by_tele_id(member[0], from_user.id)
+        bot.send_message(chat_id=from_user.id,
+                         text=send_text)
+        send_text = deposit_send_text.format(from_user.first_name, price) + send_text
+
+        bot.send_message(chat_id=member[0]['tele_id'],
+                         text=send_text)
+        logger.info('doing over')
         return ConversationHandler.END
-    member = member_service.update_amount(tele_id=member[0]['tele_id'], price=price, bef=member[0]['amout'])
-    from_user = update.message.from_user
-    bot.send_message(chat_id=from_user.id,
-                     text=balance_send_text.format(member[0]['nickName'],
-                                                   member[0]['amout'],
-                                                   member[0]['id']))
-    send_text = "管理员为您充值：{0}\n".format(price) + balance_send_text.format(member[0]['nickName'],
-                                                                         member[0]['amout'],
-                                                                         member[0]['id'])
-    bot.send_message(chat_id=member[0]['tele_id'],
-                     text=send_text)
-    logger.info('doing over')
-    return ConversationHandler.END
+    except:
+        return ConversationHandler.END
 
 
 def cancel(bot, update):

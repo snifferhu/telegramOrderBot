@@ -7,10 +7,10 @@ logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
 from service import order_service
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import InlineKeyboardButton
 from util.telegram_bot_util import create_page_button_list
 from util.common import page_number
-from util.telegram_bot_util import close
+from util.telegram_bot_util import close,default
 
 prefix = 'll'
 
@@ -37,7 +37,6 @@ def exec(query_params):
     elif query_params[1] == "close":
         return close()
     else:
-        from handlers.callback_query import default
         return default()
 
 

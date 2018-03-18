@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import logging
 from util.common import log_stream_handler
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from handlers.callback_query import ol_callback
+from telegram import InlineKeyboardMarkup
+from handlers.callback import ol_callback
 
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())

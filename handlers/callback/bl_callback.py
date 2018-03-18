@@ -6,15 +6,15 @@ from util.common import log_stream_handler
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
-from service import order_service
+from service import deposit_service
 from telegram import InlineKeyboardButton
 from util.telegram_bot_util import create_page_button_list
 from util.common import page_number
 from util.telegram_bot_util import close, default
 
-prefix = 'ol'
+prefix = 'bl'
 
-close_button = [InlineKeyboardButton("close", callback_data='ol_close')]
+close_button = [InlineKeyboardButton("close", callback_data='bl_close')]
 
 
 def exec(query_params):
@@ -30,8 +30,8 @@ def exec(query_params):
 
 
 def page(tele_id, current_page):
-    count = order_service.select_count_teleId(tele_id)
-    send_msg = order_service.select_by_teleId(tele_id, current_page)
+    count = deposit_service.select_count_teleId(tele_id)
+    send_msg = deposit_service.select_by_teleId(tele_id, current_page)
 
     keyboard_list = []
 

@@ -25,13 +25,13 @@ def select_by_teleId(teleId, page=0):
     logger.info("select_by_teleId %s %s", teleId, page)
     return dataBase.query(
         'select * from deposit_list where tele_id = %s order by create_time desc limit %s offset %s',
-        [teleId, page_number, int(page) * page_number]
+        [teleId, page_number, (int(page) - 1) * page_number]
     )
 
-#
-# def update_status(**kwargs):
-#     dataBase.execute(
-#         'update order_info set order_status = %s where id = %s',
-#         (kwargs['status'], kwargs['id']),
-#         commit=True
-#     )
+
+def select_count_teleId(teleId):
+    logger.info("select_count_teleId %s", teleId)
+    return dataBase.query(
+        'select count(*) from deposit_list where tele_id = %s',
+        [teleId]
+    )[0]

@@ -1,4 +1,4 @@
-INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (1, '427009122', 'Sniff', -1.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
+INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (1, '427009122', 'Sniff', 11999.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (2, '356974645', 'Joey', 0.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (3, '362062421', 'Peter', 0.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (4, '332523925', 'Rocky', 180.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
@@ -39,7 +39,7 @@ INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (60, '364505455', 'Kai', 270.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (61, '203610566', 'Murphy', 1040.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (62, '381003295', 'Eric', 0.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
-INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (63, '306379354', 'zii', 720.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
+INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (63, '306379354', 'zii', 880.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (64, '408313133', 'Tiana', 210.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (65, '464130205', 'Calvin', 380.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');
 INSERT INTO fate.balance_info (id, tele_id, nick_name, amount, driver_id, driver_tele_id, create_time, update_time) VALUES (66, '378750744', 'kalan', 150.000, 1, '427009122', '2018-03-18 12:27:03', '2018-03-18 12:27:03');

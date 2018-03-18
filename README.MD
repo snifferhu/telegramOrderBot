@@ -16,7 +16,7 @@ We are now collecting Telegram Order Bot user info in order to help us to improv
 **Feature schedule**
 -------------------------
 new commands 
-- rece 
+
 
 change commands 
 - over
@@ -33,3 +33,4 @@ change commands
 |add inline callback button|2018-03-18 15:26:41|
 |follow|2018-03-18 16:33:57|
 |driver|2018-03-18 23:40:31|
+|over|2018-03-19 01:47:24|

@@ -34,7 +34,7 @@ def handle(bot, update):
                                                     order['price'],
                                                     order['create_time'],
                                                     order_status[order['order_status']])
-    logger.info(send_msg)
+    logger.info(send_msg.encode('utf-8'))
     bot.send_message(chat_id=update.message.from_user.id, text=send_msg)
 
 

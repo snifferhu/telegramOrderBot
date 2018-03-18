@@ -32,6 +32,10 @@ unauthorized_send_text = '''
 请私聊此机器人，点击start按钮激活机器人服务
 '''
 
+timeout_send_text = '''
+请求超时，请稍后！
+'''
+
 balance_send_text = '''
 大佬：<{0}>
 余额：{1}
@@ -156,7 +160,7 @@ order_status = {"0": "init", "1": "cancel", "2": "over", "3": "received"}
 def log_stream_handler():
     # 定义一个Handler打印INFO及以上级别的日志到sys.stderr
     console = logging.StreamHandler()
-    console.setLevel(logging.INFO)
+    console.setLevel(logging.DEBUG)
     # 设置日志打印格式
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     console.setFormatter(formatter)

@@ -13,19 +13,30 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 STATUS, PAGE = range(2)
 
-pre_button = InlineKeyboardButton("pre", callback_data='pre')
+prefix = 'll'
 
-keyboard = [[InlineKeyboardButton("Init", callback_data='0'),
-             InlineKeyboardButton("Cancel", callback_data='1'),
-             InlineKeyboardButton("Over", callback_data='2'),
-             InlineKeyboardButton("Receive", callback_data='3')],
+pre_button = InlineKeyboardButton("pre", callback_data='ll_pre_1_0')
+close_button = [InlineKeyboardButton("close", callback_data='ll_close')]
 
-            [InlineKeyboardButton("1", callback_data='p1'),
-             InlineKeyboardButton("2", callback_data='p2'),
-             InlineKeyboardButton("3", callback_data='p3'),
-             InlineKeyboardButton("next", callback_data='next')],
+def gen_status_keyboard():
+    return [InlineKeyboardButton("Init", callback_data='ll_status_0'),
+             InlineKeyboardButton("Cancel", callback_data='ll_status_1'),
+             InlineKeyboardButton("Over", callback_data='ll_status_2'),
+             InlineKeyboardButton("Receive", callback_data='ll_status_3')]
 
-            [InlineKeyboardButton("over", callback_data='over')]
+def gen_keyboard():
+    return [[InlineKeyboardButton("Init", callback_data='ll_status_0'),
+             InlineKeyboardButton("Cancel", callback_data='ll_status_1'),
+             InlineKeyboardButton("Over", callback_data='ll_status_2'),
+             InlineKeyboardButton("Receive", callback_data='ll_status_3')],
+
+            [InlineKeyboardButton("1", callback_data='ll_page_1_0'),
+             InlineKeyboardButton("2", callback_data='ll_page_2_0'),
+             InlineKeyboardButton("3", callback_data='ll_page_3_0'),
+             InlineKeyboardButton("4", callback_data='ll_page_4_0'),
+             InlineKeyboardButton("next", callback_data='ll_next_1_0')],
+
+            [InlineKeyboardButton("close", callback_data='ll_close')]
             ]
 
 
@@ -34,17 +45,15 @@ def ll(bot, update):
                 update.message.chat_id,
                 update.message.from_user.first_name,
                 update.message.text)
+
+    from service import order_service
+    count = order_service.select_count_status("0")
+    send_msg = order_service.select_by_status("0")
+
+    keyboard = gen_keyboard()
+    if count == 0 or int(count) < 11:
+        keyboard.remove(keyboard[1])
     reply_markup = InlineKeyboardMarkup(keyboard)
-    orders = order_info_dao.select_by_status("0")
-    from util.common import order_title_msg
-    from util.common import order_info_msg
-    send_msg = "" + order_title_msg
-    for order in orders:
-        send_msg = send_msg + order_info_msg.format(order['id'],
-                                                    order['item'],
-                                                    order['price'],
-                                                    order['create_time'],
-                                                    order_status[order['order_status']])
     bot.send_message(chat_id=update.message.from_user.id, text=send_msg, reply_markup=reply_markup)
 
 

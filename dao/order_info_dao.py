@@ -51,6 +51,14 @@ def select_by_status(status, page=1):
     )
 
 
+def select_count_status(status):
+    logger.info("select_by_teleId %s", status)
+    return dataBase.query(
+        'select count(*) from order_info where order_status = %s',
+        [status]
+    )[0]
+
+
 def update_status(**kwargs):
     logger.info("update_status %s", kwargs)
     return dataBase.execute(

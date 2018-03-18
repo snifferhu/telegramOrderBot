@@ -30,22 +30,24 @@ keyboard = [[InlineKeyboardButton("Init", callback_data='0'),
 
 def callback_query(bot, update):
     query = update.callback_query
-    logger.info(query)
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    orders = order_info_dao.select_by_status(query.data)
-    from util.common import order_title_msg
-    from util.common import order_info_msg
-    send_msg = "" + order_title_msg
-    for order in orders:
-        send_msg = send_msg + order_info_msg.format(order['id'],
-                                                    order['item'],
-                                                    order['price'],
-                                                    order['create_time'],
-                                                    order_status[order['order_status']])
-    bot.edit_message_text(text=send_msg,
-                          chat_id=query.message.chat_id,
-                          message_id=query.message.message_id,
-                          reply_markup=reply_markup)
+    query_params = query.data.split("_")
+    from handlers.callback import ll_callback
+    if query_params[0] == "ll":
+        ll_callback.exec(query_params, bot, update)
+    # orders = order_info_dao.select_by_status(query.data)
+    # from util.common import order_title_msg
+    # from util.common import order_info_msg
+    # send_msg = "" + order_title_msg
+    # for order in orders:
+    #     send_msg = send_msg + order_info_msg.format(order['id'],
+    #                                                 order['item'],
+    #                                                 order['price'],
+    #                                                 order['create_time'],
+    #                                                 order_status[order['order_status']])
+    # bot.edit_message_text(text=send_msg,
+    #                       chat_id=query.message.chat_id,
+    #                       message_id=query.message.message_id,
+    #                       reply_markup=reply_markup)
     # bot.send_message(chat_id=update.message.from_user.id, text=send_msg, reply_markup=reply_markup)
 
 

@@ -12,5 +12,6 @@ __all__ = [
     'balanceList', 'bl',
     'driver',
     'cui',
+    'callback_query',
     'unknown',
 ]

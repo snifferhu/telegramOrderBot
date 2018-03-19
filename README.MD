@@ -16,17 +16,10 @@ We are now collecting Telegram Order Bot user info in order to help us to improv
 **Feature schedule**
 -------------------------
 new commands 
-- follow
-- driver 
-- ll 
-- rece 
+- rece
 
 change commands 
-- over
 
-fix bugs
-- orderList page index issue
-- balanceList page index issue
 
 **Done Task**
 -------------------------
@@ -37,3 +30,7 @@ fix bugs
 |orderList to ol|2018-3-12 18:34:47|
 |order|2018-3-13 13:37:39|
 |balanceList to bl|2018-3-13 14:55:02|
+|add inline callback button|2018-03-18 15:26:41|
+|follow|2018-03-18 16:33:57|
+|driver|2018-03-18 23:40:31|
+|over|2018-03-19 01:47:24|

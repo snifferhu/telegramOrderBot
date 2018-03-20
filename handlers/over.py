@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import logging, time
+import logging
 
 from service import balance_service
 from util.common import log_stream_handler, driver_role_notice_text, order_over_notice_msg, order_title_msg, \
@@ -10,8 +10,6 @@ logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
 from util.common import parse_cmd
-from util.common import order_notice_msg
-from util.common import order_detail_msg
 from dao import order_info_dao, driver_dao
 from random import randint
 
@@ -41,7 +39,7 @@ def handle(bot, update):
                     order["id"], order["nick_name"],
                     order["price"], order["driver_id"])
         balance = balance_service.update_amount(order["member_id"], -order["price"], from_user.id)
-        status = "3" if balance["amount"] > 0 else "2"
+        status = "3" if balance["amount"] >= 0 else "2"
         order_info_dao.update_status(status=status, id=order["id"])
         send_msg_list.append({
             "id": balance["id"],
@@ -64,12 +62,14 @@ def handle(bot, update):
             send_msg_info["price"]
         )
         send_msg = send_msg + send_order_msg
-        bot.send_message(chat_id=send_msg_info["tele_id"],
-                         text=over_title_msg + send_order_msg + "\n余额：{0}".format(send_msg_info["amount"]))
-
         total_price = total_price + int(send_msg_info["price"])
+        try:
+            bot.send_message(chat_id=send_msg_info["tele_id"],
+                             text=over_title_msg + send_order_msg + "\n余额：{0}".format(send_msg_info["amount"]))
+        except:
+            logger.warning(send_order_msg)
     number = int(text) if text != None and text.isdigit() else int(len(order_list) / 10) - 1
-    for tmp in range(number):
+    for x in range(number):
         random_order = random_send_msg(send_msg_list, from_user)
         bot.send_message(chat_id=update.message.chat_id, text="请 <{0}> 协助拿饭".format(random_order["nick_name"]))
         bot.send_message(chat_id=random_order["tele_id"], text="请 <{0}> 协助拿饭".format(random_order["nick_name"]))

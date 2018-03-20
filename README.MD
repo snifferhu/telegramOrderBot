@@ -17,6 +17,7 @@ We are now collecting Telegram Order Bot user info in order to help us to improv
 -------------------------
 new commands 
 - rece
+- feeList and fl
 
 change commands 
 

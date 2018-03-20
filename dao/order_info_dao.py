@@ -47,10 +47,16 @@ def select_by_id(id):
 
 def select_by_status(status, page=1):
     logger.info("select_by_status %s", status)
-    return dataBase.query(
-        'select * from order_info where order_status = %s order by create_time desc limit %s offset %s',
-        [status, page_number, (int(page) - 1) * page_number]
-    )
+    if status == 0 or status == "0":
+        return dataBase.query(
+            'select * from order_info where order_status = %s order by nick_name,create_time desc limit %s offset %s',
+            [status, page_number, (int(page) - 1) * page_number]
+        )
+    else:
+        return dataBase.query(
+            'select * from order_info where order_status = %s order by create_time desc limit %s offset %s',
+            [status, page_number, (int(page) - 1) * page_number]
+        )
 
 
 def select_count_status(status):

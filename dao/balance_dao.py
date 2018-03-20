@@ -54,3 +54,10 @@ def update_amount(price, tele_id, bef, driver_tele_id):
         'update balance_info set amount = amount + %s where tele_id = %s and amount = %s and driver_tele_id = %s',
         [price, tele_id, bef, driver_tele_id]
     )
+
+
+def select_amount_by_member(tele_id, driver_id):
+    logger.info("select_by_fee %s", 0)
+    return dataBase.query(
+        'select * from balance_info where tele_id = %s and driver_id = %s', [tele_id, driver_id]
+    )

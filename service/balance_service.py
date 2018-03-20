@@ -26,17 +26,20 @@ def update_amount(tele_id, price, driver_tele_id):
 def insert(tele_id, driver_tele_id):
     balance = balance_dao.select_by_teleId(tele_id, driver_tele_id)
     if len(balance) == 0:
-        balance = insert_without_check(tele_id, driver_tele_id)
+        balance = insert_without_check(tele_id=tele_id, driver_tele_id=driver_tele_id)
     logging.info(balance)
     return balance
 
 
-def insert_without_check(tele_id, driver_tele_id):
+def insert_without_check(tele_id, driver_tele_id, driver_id):
     follow = member_dao.select_by_teleId(tele_id)
-    driver = driver_dao.select_by_teleId(driver_tele_id)
+    if driver_tele_id != None:
+        driver = driver_dao.select_by_teleId(driver_tele_id)[0]
+    if driver_id != None:
+        driver = driver_dao.select_by_id(driver_id)[0]
     balance_dao.insert(tele_id=tele_id,
                        nick_name=follow[0]['nickName'],
-                       driver_id=driver[0]['id'],
+                       driver_id=driver['id'],
                        driver_tele_id=driver_tele_id)
     balance = balance_dao.select_by_teleId(tele_id, driver_tele_id)
     logging.info(balance)
@@ -52,6 +55,14 @@ def select_by_tele_id(member, driver_tele_id):
         member['id'],
         balance[0]['driver_id']
     )
+
+
+def select_amount_by_member(member):
+    balance = balance_dao.select_amount_by_member(member['tele_id'], member['driver_id'])
+    if len(balance) == 0:
+        insert_without_check(tele_id=member['tele_id'], driver_id=member['driver_id'])
+        balance = balance_dao.select_amount_by_member(member['tele_id'], member['driver_id'])
+    return balance[0]
 
 
 def select_all_by_tele_id(member):

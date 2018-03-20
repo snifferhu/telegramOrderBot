@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging, time
 
-from service import balance_service
+from service import balance_service, member_service
 from util.common import log_stream_handler, order_balance_notice_msg
 
 # 将定义好的console日志handler添加到root logger
@@ -23,12 +23,7 @@ def handle(bot, update):
     from_user = update.message.from_user
 
     # 用户校验
-    member = member_dao.select_by_teleId(from_user.id)
-    if len(member) == 0:
-        member_dao.insert(username=from_user.username,
-                          first_name=from_user.first_name,
-                          tele_id=from_user.id)
-        member = member_dao.select_by_teleId(from_user.id)
+    member = member_service.select_by_tele_id(from_user)
 
     cmd, text = parse_cmd(update.message.text)
     logger.info("%s  %s", cmd, text)

@@ -9,15 +9,13 @@ logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
 
-
-
 def ll(bot, update):
     logger.info("chatId: %s,first_name: %s,text: %s",
                 update.message.chat_id,
                 update.message.from_user.first_name,
                 update.message.text)
-
-    send_msg, keyboard_list = ll_callback.page("0", 1)
+    from_user = update.message.from_user
+    send_msg, keyboard_list = ll_callback.page(from_user, "0", 1)
     reply_markup = InlineKeyboardMarkup(keyboard_list)
     bot.send_message(chat_id=update.message.from_user.id, text=send_msg, reply_markup=reply_markup)
 

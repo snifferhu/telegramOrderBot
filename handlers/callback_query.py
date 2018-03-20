@@ -15,7 +15,7 @@ def callback_query(bot, update):
     query_params = query.data.split("_")
 
     if query_params[0] == "ll":
-        send_msg, keyboard_list = ll_callback.exec(query_params)
+        send_msg, keyboard_list = ll_callback.exec(query.from_user, query_params)
     elif query_params[0] == "bl":
         send_msg, keyboard_list = bl_callback.exec(query_params)
     elif query_params[0] == "ol":

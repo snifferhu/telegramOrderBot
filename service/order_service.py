@@ -13,9 +13,9 @@ from util.common import ll_title_msg
 from util.common import order_info_msg
 
 
-def select_by_status(status, page=1):
-    logger.info("select_by_status %s %s", status, page)
-    orders = order_info_dao.select_by_status(status, page)
+def select_by_status(status, page=1, driver_id=1):
+    logger.info("select_by_status %s %s %s", status, page, driver_id)
+    orders = order_info_dao.select_by_status(status, page, driver_id)
     send_msg = "" + ll_title_msg
     for order in orders:
         send_msg = send_msg + order_info_msg.format(order['nick_name'],
@@ -27,12 +27,12 @@ def select_by_status(status, page=1):
     return send_msg
 
 
-def select_count_status(status):
-    return order_info_dao.select_count_status(status)['count(*)']
+def select_count_status(status, driver_id=1):
+    return order_info_dao.select_count_status(status, driver_id)['count(*)']
 
 
-def select_by_teleId(tele_id, page=1):
-    logger.info("select_by_teleId %s %s", tele_id, page)
+def select_by_teleId(tele_id, page=1, driver_id=1):
+    logger.info("select_by_teleId %s %s %s", tele_id, page, driver_id)
     orders = order_info_dao.select_by_teleId(tele_id, page)
     send_msg = "" + order_title_msg
     for order in orders:

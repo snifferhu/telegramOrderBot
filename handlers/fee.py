@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from service import balance_service
+from service import balance_service, member_service
 from util.common import log_stream_handler
 
 # 将定义好的console日志handler添加到root logger
@@ -10,15 +10,14 @@ logger = logging.getLogger(__name__)
 
 from util.common import balance_send_text
 from util.common import driver_role_notice_text
-from dao import member_dao
 
 
 def handle(bot, update):
     logger.info("chatId: %s,first_name: %s,text: %s", update.message.chat_id, update.message.from_user.first_name,
                 update.message.text)
     from_user = update.message.from_user
-    user = member_dao.select_by_teleId(from_user.id)
-    if user[0]["is_driver"] == 1:
+    member = member_service.select_by_tele_id(from_user)
+    if member[0]["is_driver"] == 1:
         balance_list = balance_service.select_by_fee(from_user.id)
         if len(balance_list) == 0:
             bot.send_message(chat_id=from_user.id,

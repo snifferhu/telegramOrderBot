@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 from util.common import log_stream_handler
+
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
@@ -17,12 +18,19 @@ def update_amount(tele_id, price, bef):
     logging.info(member)
     return member
 
+
 def select_by_id(id):
     member = member_dao.select_by_id(id)
     logging.info(member)
     return member
 
-def select_by_tele_id(tele_id):
-    member = member_dao.select_by_teleId(tele_id)
+
+def select_by_tele_id(from_user):
+    member = member_dao.select_by_teleId(from_user.id)
+    if len(member) == 0:
+        member_dao.insert(username=from_user.username,
+                          first_name=from_user.first_name,
+                          tele_id=from_user.id)
+        member = member_dao.select_by_teleId(from_user.id)
     logging.info(member)
     return member

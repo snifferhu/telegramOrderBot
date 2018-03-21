@@ -32,10 +32,10 @@ def handle(bot, update):
     for order_id in text.strip().split(' '):
         order = order_info_dao.select_by_id(order_id)
         logging.info("cancel orders:{0}".format(order))
-        tele_id = order[0]['member_id']
         if len(order) == 0:
             bot.send_message(chat_id=from_user.id, text=null_notice_send_text.format(order_id))
             continue
+        tele_id = order[0]['member_id']
         if order[0]['order_status'] == '1':
             bot.send_message(chat_id=from_user.id, text=status_note_msg.format(order_id))
             continue

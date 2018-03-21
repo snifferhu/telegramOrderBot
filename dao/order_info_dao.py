@@ -45,19 +45,25 @@ def select_by_id(id):
     )
 
 
-def select_by_status(status, page=1):
-    logger.info("select_by_status %s", status)
-    return dataBase.query(
-        'select * from order_info where order_status = %s order by create_time desc limit %s offset %s',
-        [status, page_number, (int(page) - 1) * page_number]
-    )
+def select_by_status(status, page=1, driver_id='1'):
+    logger.info("select_by_status %s %s %s", status, page, driver_id)
+    if status == 0 or status == "0":
+        return dataBase.query(
+            'select * from order_info where order_status = %s and driver_id = %s order by nick_name,create_time desc limit %s offset %s',
+            [status, driver_id, page_number, (int(page) - 1) * page_number]
+        )
+    else:
+        return dataBase.query(
+            'select * from order_info where order_status = %s and driver_id = %s order by create_time desc limit %s offset %s',
+            [status, driver_id, page_number, (int(page) - 1) * page_number]
+        )
 
 
-def select_count_status(status):
-    logger.info("select_by_teleId %s", status)
+def select_count_status(status, driver_id='1'):
+    logger.info("select_count_status %s %s", status, driver_id)
     return dataBase.query(
-        'select count(*) from order_info where order_status = %s',
-        [status]
+        'select count(*) from order_info where order_status = %s and driver_id = %s',
+        [status, driver_id]
     )[0]
 
 

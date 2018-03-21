@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-from util.common import log_stream_handler
+from util.common import log_stream_handler, bal_title_msg, bal_info_msg, fl_title_msg, fl_info_msg
 
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
@@ -26,17 +26,21 @@ def update_amount(tele_id, price, driver_tele_id):
 def insert(tele_id, driver_tele_id):
     balance = balance_dao.select_by_teleId(tele_id, driver_tele_id)
     if len(balance) == 0:
-        balance = insert_without_check(tele_id, driver_tele_id)
+        balance = insert_without_check(tele_id=tele_id, driver_tele_id=driver_tele_id)
     logging.info(balance)
     return balance
 
 
-def insert_without_check(tele_id, driver_tele_id):
+def insert_without_check(tele_id, driver_tele_id, driver_id):
     follow = member_dao.select_by_teleId(tele_id)
-    driver = driver_dao.select_by_teleId(driver_tele_id)
+    if driver_tele_id != None:
+        driver = driver_dao.select_by_teleId(driver_tele_id)[0]
+    if driver_id != None:
+        driver = driver_dao.select_by_id(driver_id)[0]
     balance_dao.insert(tele_id=tele_id,
                        nick_name=follow[0]['nickName'],
-                       driver_id=driver[0]['id'],
+                       member_id=follow[0]['id'],
+                       driver_id=driver['id'],
                        driver_tele_id=driver_tele_id)
     balance = balance_dao.select_by_teleId(tele_id, driver_tele_id)
     logging.info(balance)
@@ -52,6 +56,14 @@ def select_by_tele_id(member, driver_tele_id):
         member['id'],
         balance[0]['driver_id']
     )
+
+
+def select_amount_by_member(member):
+    balance = balance_dao.select_amount_by_member(member['tele_id'], member['driver_id'])
+    if len(balance) == 0:
+        insert_without_check(tele_id=member['tele_id'], driver_id=member['driver_id'])
+        balance = balance_dao.select_amount_by_member(member['tele_id'], member['driver_id'])
+    return balance[0]
 
 
 def select_all_by_tele_id(member):
@@ -80,3 +92,18 @@ def select_by_fee(driver_tele_id):
         }
         send_msg_list.append(balance_info)
     return send_msg_list
+
+
+def select_count_driver_teleId(tele_id):
+    return balance_dao.select_count_driver_teleId(tele_id)["count(*)"]
+
+
+def select_by_driver_teleId(tele_id, current_page=1, order_flied="create_time", sort="asc"):
+    logger.info("select_by_driver_teleId %s %s %s", tele_id, current_page, order_flied)
+    balance_list = balance_dao.select_by_driver_teleId(tele_id, current_page, order_flied, sort)
+    send_msg = "" + fl_title_msg
+    for balance in balance_list:
+        send_msg = send_msg + fl_info_msg.format(balance['member_id'],
+                                                 balance['nick_name'],
+                                                 int(balance['amount']))
+    return send_msg

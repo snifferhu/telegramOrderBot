@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 from util.common import log_stream_handler
+
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
@@ -39,9 +40,18 @@ def select_by_cui():
         'select * from member where amout < %s', [0]
     )
 
+
 def update_amout(price, tele_id, bef):
     logger.info("update_amout %s %s %s", price, tele_id, bef)
     dataBase.execute(
         'update member set amout = amout + %s where tele_id = %s and amout = %s',
         [price, tele_id, bef]
+    )
+
+
+def update_driver(tele_id, driver_id):
+    logger.info("update_driver %s %s", tele_id, driver_id)
+    dataBase.execute(
+        'update member set driver_id = %s where tele_id = %s',
+        [driver_id, tele_id]
     )

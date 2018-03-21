@@ -33,9 +33,9 @@ def doing(bot, update):
     from_user = update.message.from_user
     logger.info(update.message.text)
     if text == 'Yes':
-        send_text = ''
+        send_text = '开车需培训，请到sniff处接受培训上岗...'
     else:
-        send_text = ''
+        send_text = '感谢支持'
     bot.send_message(chat_id=from_user.id,
                      text=send_text,
                      reply_markup=ReplyKeyboardRemove())

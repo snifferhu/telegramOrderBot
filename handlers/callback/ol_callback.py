@@ -20,9 +20,9 @@ close_button = [InlineKeyboardButton("close", callback_data='ol_close')]
 def exec(query_params):
     logger.info(query_params)
     if query_params[1] == "next" or query_params[1] == "page" or query_params[1] == "pre":
-        status = query_params[3]
+        tele_id = query_params[3]
         current_page = int(query_params[2])
-        return page(status, current_page)
+        return page(tele_id, current_page)
     elif query_params[1] == "close":
         return close()
     else:

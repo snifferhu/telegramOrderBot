@@ -14,6 +14,7 @@ __all__ = [
     'fee',
     'follow',
     'over',
+    'role',
     'feeList', 'fl',
     'callback_query',
     'unknown',

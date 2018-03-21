@@ -73,9 +73,10 @@ def select_count_driver_teleId(driver_id):
     )[0]
 
 
-def select_by_driver_teleId(tele_id, current_page=1, order_flied="create_time",sort="asc"):
-    logger.info("select_by_driver_teleId %s %s %s", tele_id, current_page, order_flied)
+def select_by_driver_teleId(tele_id, current_page=1, order_flied="create_time", sort="asc"):
+    logger.info("select_by_driver_teleId %s %s %s %s", tele_id, current_page, order_flied, sort)
     return dataBase.query(
-        'select * from balance_info where driver_tele_id = %s order by {0} {1} limit %s offset %s'.format(order_flied,sort),
+        'select * from balance_info where driver_tele_id = %s order by {0} {1} limit %s offset %s'.format(order_flied,
+                                                                                                          sort),
         [tele_id, page_number, (int(current_page) - 1) * page_number]
     )

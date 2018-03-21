@@ -99,7 +99,7 @@ def select_count_driver_teleId(tele_id):
 
 
 def select_by_driver_teleId(tele_id, current_page=1, order_flied="create_time", sort="asc"):
-    logger.info("select_by_driver_teleId %s %s %s", tele_id, current_page, order_flied)
+    logger.info("select_by_driver_teleId %s %s %s %s", tele_id, current_page, order_flied, sort)
     balance_list = balance_dao.select_by_driver_teleId(tele_id, current_page, order_flied, sort)
     send_msg = "" + fl_title_msg
     for balance in balance_list:

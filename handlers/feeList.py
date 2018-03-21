@@ -13,7 +13,7 @@ def handle(bot, update):
     logger.info("chatId: %s,first_name: %s,text: %s", update.message.chat_id, update.message.from_user.first_name,
                 update.message.text)
     from_user = update.message.from_user
-    send_msg, keyboard_list = fl_callback.page(from_user.id, "id", 1)
+    send_msg, keyboard_list = fl_callback.page(from_user.id, "ida", 1)
     if len(keyboard_list) == 0:
         bot.send_message(chat_id=update.message.from_user.id, text=send_msg)
     else:

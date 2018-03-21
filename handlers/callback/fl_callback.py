@@ -18,15 +18,21 @@ close_button = [InlineKeyboardButton("close", callback_data='fl_close')]
 
 
 def gen_order_keyboard(order):
-    return [InlineKeyboardButton("Order Id" if order != "id" else "[ Order Id ]", callback_data='fl_order_id'),
-            InlineKeyboardButton("Order Name" if order != "name" else "[ Order Name ]", callback_data='fl_order_name'),
-            InlineKeyboardButton("Order Money" if order != "am" else "[ Order Money ]", callback_data='fl_order_am')]
+    return [InlineKeyboardButton("Order Id" if order[0] != "member_id" else "[ Order Id ]",
+                                 callback_data='fl_order_{0}'.format(order[1][0])),
+            InlineKeyboardButton("Order Name" if order[0] != "nick_name" else "[ Order Name ]",
+                                 callback_data='fl_order_{0}'.format(order[1][1])),
+            InlineKeyboardButton("Order Money" if order[0] != "amount" else "[ Order Money ]",
+                                 callback_data='fl_order_{0}'.format(order[1][2]))]
 
 
 order_flied_dict = {
-    "id": "member_id",
-    "name": "nick_name",
-    "am": "amount"
+    "ida": ["member_id", ["idd","named","amd"], "asc"],
+    "idd": ["member_id", ["ida","namea","ama"], "desc"],
+    "namea": ["nick_name", ["idd","named","amd"], "asc"],
+    "named": ["nick_name", ["ida","namea","ama"], "desc"],
+    "ama": ["amount", ["idd","named","amd"], "asc"],
+    "amd": ["amount", ["ida","namea","ama"], "desc"]
 }
 
 
@@ -48,14 +54,15 @@ def exec(from_user, query_params):
 
 def page(tele_id, order, current_page):
     count = balance_service.select_count_driver_teleId(tele_id)
-    send_msg = balance_service.select_by_driver_teleId(tele_id, current_page, order_flied_dict[order])
+    send_msg = balance_service.select_by_driver_teleId(tele_id, current_page, order_flied_dict[order][0],
+                                                       order_flied_dict[order][2])
 
     keyboard_list = []
     if count != 0 and int(count) > page_number:
-        keyboard_order = gen_order_keyboard([order])
+        keyboard_order = gen_order_keyboard(order_flied_dict[order])
         keyboard_list.append(keyboard_order)
 
-        keyboard_page = create_page_button_list(count, prefix, current_page, tele_id)
+        keyboard_page = create_page_button_list(count, prefix, current_page, order)
         keyboard_list.append(keyboard_page)
         keyboard_list.append(close_button)
     return send_msg, keyboard_list

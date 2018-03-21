@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-from util.common import log_stream_handler
+from util.common import log_stream_handler, bal_title_msg, bal_info_msg, fl_title_msg, fl_info_msg
 
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
@@ -39,6 +39,7 @@ def insert_without_check(tele_id, driver_tele_id, driver_id):
         driver = driver_dao.select_by_id(driver_id)[0]
     balance_dao.insert(tele_id=tele_id,
                        nick_name=follow[0]['nickName'],
+                       member_id=follow[0]['id'],
                        driver_id=driver['id'],
                        driver_tele_id=driver_tele_id)
     balance = balance_dao.select_by_teleId(tele_id, driver_tele_id)
@@ -91,3 +92,18 @@ def select_by_fee(driver_tele_id):
         }
         send_msg_list.append(balance_info)
     return send_msg_list
+
+
+def select_count_driver_teleId(tele_id):
+    return balance_dao.select_count_driver_teleId(tele_id)["count(*)"]
+
+
+def select_by_driver_teleId(tele_id, current_page=1, order_flied="create_time", sort="asc"):
+    logger.info("select_by_driver_teleId %s %s %s", tele_id, current_page, order_flied)
+    balance_list = balance_dao.select_by_driver_teleId(tele_id, current_page, order_flied, sort)
+    send_msg = "" + fl_title_msg
+    for balance in balance_list:
+        send_msg = send_msg + fl_info_msg.format(balance['member_id'],
+                                                 balance['nick_name'],
+                                                 int(balance['amount']))
+    return send_msg

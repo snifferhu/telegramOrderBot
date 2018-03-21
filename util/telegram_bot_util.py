@@ -29,7 +29,7 @@ def create_close_button(prefix):
 
 
 def create_page_button_list(count, prefix, pageIndex=1, status="0"):
-    logger.info("create_page_button_list(count=%s, prefix=%s, pageIndex=%s, status=%s)",
+    logger.info("create_page_button_list(count=%s, prefix=%s, pageIndex=%s, lastFiled=%s)",
                 count,
                 prefix,
                 pageIndex,

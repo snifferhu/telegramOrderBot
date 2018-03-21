@@ -72,6 +72,13 @@ bal_title_msg = '''
 bal_info_msg = '''
 {0}\t{1}\t{2}\t{3}'''
 
+fl_title_msg = '''
+编号\t户名\t金额
+'''
+
+fl_info_msg = '''
+{0}\t\t\t{1}\t\t\t{2}'''
+
 order_title_msg = '''
 编号\t详情\t金额\t状态\t下单时间'''
 

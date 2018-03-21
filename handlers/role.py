@@ -1,18 +1,12 @@
 # -*- coding: utf-8 -*-
-import logging, time
+import logging
 
 from service import balance_service, member_service
-from util.common import log_stream_handler, order_balance_notice_msg
+from util.common import log_stream_handler
 
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
-
-from util.common import parse_cmd
-from util.common import order_notice_msg
-from util.common import order_detail_msg
-from dao import order_info_dao, balance_dao
-from dao import member_dao
 
 
 def handle(bot, update):
@@ -35,6 +29,6 @@ def handle(bot, update):
 
 command = 'role'
 
-from telegram.ext import Filters, RegexHandler,MessageHandler
+from telegram.ext import Filters, MessageHandler
 
-handler = MessageHandler( Filters.group, handle)
+handler = MessageHandler((Filters.group & (~Filters.command)), handle)

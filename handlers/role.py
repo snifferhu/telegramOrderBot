@@ -22,7 +22,7 @@ def handle(bot, update):
     member[0]["driver_id"] = "2"
     balance = balance_service.select_amount_by_member(member[0])
     if balance["amount"] < 1:
-        update.message.reply_text("请到司机riley处充值，方可获得发言权")
+        update.message.reply_text("请到司机处充值，方可获得发言权")
         bot.delete_message(chat_id=update.message.chat_id, message_id=update.message.message_id)
         return
 

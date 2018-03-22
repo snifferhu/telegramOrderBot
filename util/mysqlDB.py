@@ -19,7 +19,7 @@ class DataBase(object):
         self._user = user
         self._password = password
         self._database = database
-        logger.info("host:%s,root:%s,port:%s,password:%s,db:%s", host, user, port, password, database)
+        # logger.info("host:%s,root:%s,port:%s,password:%s,db:%s", host, user, port, password, database)
 
     def getConnect(self):
         try:

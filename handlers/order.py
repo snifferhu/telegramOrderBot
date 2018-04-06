@@ -34,18 +34,21 @@ def handle(bot, update):
         return
     item, price = order_info
     item = item.strip()
-    price = price.strip()
+    price = price.strip().replace("p", "").replace("P", "")
 
+    if price.isdigit() == False:
+        update.message.reply_text(order_notice_msg)
+        return
     balance = balance_service.select_amount_by_member(member[0])
     if balance["amount"] < int(price):
         bot.send_message(chat_id=from_user.id, text=order_balance_notice_msg)
         send_text = balance_service.select_all_by_tele_id(member[0])
         bot.send_message(chat_id=from_user.id,
                          text=send_text)
-        return
-    if price.isdigit() == False:
-        update.message.reply_text(order_notice_msg)
-        return
+        driver = member_service.select_driver(member[0])
+        bot.send_message(chat_id=driver[0]['tele_id'],
+                         text=send_text)
+    #     return
 
     # 单号生成
     order_id = str(int(time.time()))[4:] + from_user.first_name[:1]

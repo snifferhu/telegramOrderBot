@@ -9,7 +9,6 @@ logger = logging.getLogger(__name__)
 from util.common import role_send_text
 from util.common import parse_cmd
 from service import member_service, balance_service
-from util.common import balance_send_text
 from util.common import deposit_notice_text
 
 DOING, DONE = range(2)

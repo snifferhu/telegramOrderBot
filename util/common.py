@@ -41,15 +41,17 @@ user_send_text = '''大佬：<{0}>
 '''
 
 balance_send_text = '''
+司机车牌：{3}
+
 大佬：<{0}>
 余额：{1}
 编号：{2}
-司机车牌：{3}
 '''
 
 balance_all_send_text = '''
-余额：{0}
 司机车牌：{1}
+
+余额：{0}
 '''
 
 cancel_notice_text = '''
@@ -108,7 +110,8 @@ order_notice_msg = '''格式错误
 示范：/order A1 B1 C1#160'''
 
 order_balance_notice_msg = '''
-余额不足，请联系司机，续费后重新下单！'''
+余额不足，请联系司机，续费！
+(鉴于常发生续费后，忘记补单情况，调整缴费规则)'''
 
 order_over_notice_msg = '''
 尚无订单'''
@@ -149,7 +152,7 @@ help_send_text = '''
 /follow - 跟车命令，默认跟车1号(sniff车)，所有订单命令将会以跟车号维系
 /menu - 对应车牌下，菜单信息
 /order - 下单命令
-/cancel - 申请撤销订单，需与列车长确认订单状态
+/cancel - 撤销订单，默认撤销最后一份订单
 /orderList  - 查看本人历史订单记录
 /ol - 查看本人历史订单记录
 

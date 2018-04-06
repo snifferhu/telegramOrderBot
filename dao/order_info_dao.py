@@ -37,6 +37,12 @@ def select_count_teleId(teleId):
         [teleId]
     )[0]
 
+def select_last_one_teleId(teleId):
+    logger.info("select_last_one_teleId %s", teleId)
+    return dataBase.query(
+        'select * from order_info where member_id = %s order by order_status,create_time desc limit 1',
+        [teleId]
+    )
 
 def select_by_id(id):
     logger.info("select_by_id %s", id)

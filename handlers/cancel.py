@@ -51,7 +51,8 @@ def cancel_order(bot, from_user, order, driver, send_msg):
         return
     if order[0]['order_status'] == '0':
         order_info_dao.update_status(status='1', id=order[0]['id'])
-    if order[0]['order_status'] == "2" and len(driver) == 1 and order[0]['driver_id'] == str(driver[0]['id']):
+    if (order[0]['order_status'] == "2" or order[0]['order_status'] == "3") and len(driver) == 1 and order[0]['driver_id'] == str(driver[0]['id']):
+        order_info_dao.update_status(status='1', id=order[0]['id'])
         balance_service.update_amount(order[0]['member_id'], order[0]['price'], from_user.id)
         bot.send_message(chat_id=from_user.id,
                          text='订单：{0}\n清退金额：{1}'.format(order[0]['id'], order[0]['price']))

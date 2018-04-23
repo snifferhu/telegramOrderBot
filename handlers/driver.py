@@ -6,10 +6,7 @@ from util.common import log_stream_handler
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
-from util.common import role_send_text
 from util.common import parse_cmd
-from service import member_service
-from util.common import balance_send_text
 
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
 
@@ -52,7 +49,7 @@ def cancel(bot, update):
 
 command = 'driver'
 
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, RegexHandler,
+from telegram.ext import (CommandHandler,  RegexHandler,
                           ConversationHandler)
 
 handler = ConversationHandler(

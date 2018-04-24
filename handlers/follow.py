@@ -40,12 +40,13 @@ def handle(bot, update):
 
     bot.send_message(chat_id=from_user.id,
                      text=follow_send_msg.format(from_user.first_name,
+                                                 member[0]['id'],
                                                  driver_info[0]['nickName'])
                      )
-    bot.send_message(chat_id=driver[0]['tele_id'],
-                     text=follow_send_msg.format(from_user.first_name,
-                                                 driver_info[0]['nickName'])
-                     )
+    # bot.send_message(chat_id=driver[0]['tele_id'],
+    #                  text=follow_send_msg.format(from_user.first_name,
+    #                                              driver_info[0]['nickName'])
+    #                  )
 
 
 command = 'follow'

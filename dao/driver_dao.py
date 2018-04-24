@@ -32,3 +32,10 @@ def select_by_id(id):
     return dataBase.query(
         'select * from driver_list where id = %s', [id]
     )
+
+
+def update_status_by_teleId(open_status, teleId):
+    logger.info("update_status_by_teleId %s %s", open_status, teleId)
+    return dataBase.query(
+        'update driver_list set open_status = %s where tele_id = %s', [open_status, teleId]
+    )

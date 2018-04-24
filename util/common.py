@@ -125,7 +125,7 @@ member_cnt_find_text = '''
 '''
 
 deposit_notice_text = '''
-/cancel or [no]#[price]
+/cancelDeposit or [no]#[price]
 '''
 
 deposit_send_text = '''
@@ -170,6 +170,13 @@ help_send_text = '''
 /fl - 欠费列表命令，截单后查看欠费乘客列表
 /fee - 催单命令，截单后私聊催促欠费乘客
 /rece - receive收账命令
+/openBus - 开车，哔哔哔
+/closeBus - 收班，啪啪啪
+'''
+
+driver_close_msg = '''
+<{}>号司机，猛踩刹车
+乘客请注意抓好扶手，下车请注意先下后上
 '''
 
 order_status = {"0": "init", "1": "cancel", "2": "over", "3": "received"}
@@ -194,6 +201,13 @@ driver_role_notice_text = '''
 请 /driver
 '''
 
+driver_open_notice_text = '''
+哔哔哔，开车啦！
+'''
+
+driver_close_notice_text = '''
+啪啪啪，收班啦！
+'''
 driver_yes_msg = '''
 司机 <{0}>
 您的车牌号为：{1}
@@ -211,7 +225,8 @@ follow_null_notice_msg = '''
 
 follow_send_msg = '''
 滴滴滴，学生卡 -> {0}
-成功上 -> {1} 车
+编号 -> {1}
+成功上 -> {2} 车
 '''
 
 page_number = 10

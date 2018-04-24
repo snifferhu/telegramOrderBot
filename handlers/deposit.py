@@ -6,10 +6,10 @@ from util.common import log_stream_handler, deposit_send_text
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
-from util.common import role_send_text
 from util.common import parse_cmd
 from service import member_service, balance_service
-from util.common import deposit_notice_text
+from util.common import deposit_notice_text, driver_role_notice_text
+from dao import driver_dao
 
 DOING, DONE = range(2)
 
@@ -18,10 +18,16 @@ def deposit(bot, update):
     logger.info("chatId: %s,first_name: %s,text: %s", update.message.chat_id, update.message.from_user.first_name,
                 update.message.text)
     from_user = update.message.from_user
-    if from_user.id != 427009122:
-        bot.send_message(chat_id=from_user.id,
-                         text=role_send_text)
+
+    # 司机校验
+    driver = driver_dao.select_by_teleId(from_user.id)
+    if len(driver) == 0:
+        update.message.reply_text(driver_role_notice_text)
         return ConversationHandler.END
+    # if from_user.id != 427009122:
+    #     bot.send_message(chat_id=from_user.id,
+    #                      text=role_send_text)
+    #     return ConversationHandler.END
     bot.send_message(chat_id=from_user.id,
                      text=deposit_notice_text)
     return DOING
@@ -58,7 +64,7 @@ def doing(bot, update):
         return ConversationHandler.END
 
 
-def cancel(bot, update):
+def cancelDeposit(bot, update):
     user = update.message.from_user
     logger.info("User %s canceled the conversation.", user.first_name)
     update.message.reply_text('再见! 期待下一次的合作.')
@@ -76,5 +82,5 @@ handler = ConversationHandler(
         DOING: [MessageHandler(Filters.text, doing)]
     },
 
-    fallbacks=[CommandHandler('cancel', cancel)]
+    fallbacks=[CommandHandler('cancelDeposit', cancelDeposit)]
 )

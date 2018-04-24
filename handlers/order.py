@@ -10,9 +10,9 @@ logger = logging.getLogger(__name__)
 
 from util.common import parse_cmd
 from util.common import order_notice_msg
-from util.common import order_detail_msg
-from dao import order_info_dao, balance_dao
-from dao import member_dao
+from util.common import order_detail_msg, driver_close_msg
+from dao import order_info_dao
+from dao import driver_dao
 
 
 def handle(bot, update):
@@ -24,6 +24,11 @@ def handle(bot, update):
 
     # 用户校验
     member = member_service.select_by_tele_id(from_user)
+
+    driver = driver_dao.select_by_id(member[0]['driver_id'])
+    if driver == None or len(driver) == 0 or driver[0]['open_status'] == '1':
+        update.message.reply_text(driver_close_msg.format(driver[0]['id']))
+        return
 
     cmd, text = parse_cmd(update.message.text)
     logger.info("%s  %s", cmd, text)

@@ -22,7 +22,7 @@ def handle(bot, update):
         return
 
     driver_dao.update_status_by_teleId("1", from_user.id)
-    bot.send_message(chat_id=from_user.id, text=driver_close_notice_text)
+    update.message.reply_text(driver_close_notice_text)
 
 
 command = 'closeBus'

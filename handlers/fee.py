@@ -40,7 +40,7 @@ def handle(bot, update):
                                  )
 
     else:
-        update.message.reply_text(chat_id=update.message.chat_id, text=driver_role_notice_text)
+        update.message.reply_text(chat_id=from_user.id, text=driver_role_notice_text)
 
 
 command = 'fee'

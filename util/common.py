@@ -110,8 +110,7 @@ order_notice_msg = '''格式错误
 示范：/order A1 B1 C1#160'''
 
 order_balance_notice_msg = '''
-余额不足，请联系司机，续费！
-(鉴于常发生续费后，忘记补单情况，调整缴费规则)'''
+下单已成功，但是余额不足，尽快缴费！'''
 
 order_over_notice_msg = '''
 尚无订单'''

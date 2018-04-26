@@ -6,7 +6,7 @@ from util.common import log_stream_handler
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
-from service import deposit_service, balance_service
+from service import balance_service
 from telegram import InlineKeyboardButton
 from util.telegram_bot_util import create_page_button_list
 from util.common import page_number

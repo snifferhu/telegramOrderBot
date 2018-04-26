@@ -228,4 +228,4 @@ follow_send_msg = '''
 成功上 -> {2} 车
 '''
 
-page_number = 10
+page_number = 30

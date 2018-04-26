@@ -17,27 +17,28 @@ def handle(bot, update):
                 update.message.text)
     from_user = update.message.from_user
     member = member_service.select_by_tele_id(from_user)
-    if member[0]["is_driver"] == 1:
-        balance_list = balance_service.select_by_fee(from_user.id)
-        for balance_info in balance_list:
-            bot.send_message(chat_id=balance_info['tele_id'],
-                                 text=balance_send_text.format(balance_info['nick_name'],
-                                                               balance_info['amount'],
-                                                               balance_info['id'],
-                                                               balance_info['driver_id']
-                                                               )
-                                 )
-            bot.send_message(chat_id=from_user.id,
-                                 text=balance_send_text.format(balance_info['nick_name'],
-                                                               balance_info['amount'],
-                                                               balance_info['id'],
-                                                               balance_info['driver_id']
-                                                               )
-                                 )
-        bot.send_message(chat_id=from_user.id, text='催债结束')
-
-    else:
+    if member[0]["is_driver"] != 1:
         update.message.reply_text(chat_id=from_user.id, text=driver_role_notice_text)
+        return
+
+    balance_list = balance_service.select_by_fee(from_user.id)
+    for balance_info in balance_list:
+        bot.send_message(chat_id=balance_info['tele_id'],
+                                 text=balance_send_text.format(balance_info['nick_name'],
+                                                               balance_info['amount'],
+                                                               balance_info['id'],
+                                                               balance_info['driver_id']
+                                                               )
+                                 )
+        bot.send_message(chat_id=from_user.id,
+                                 text=balance_send_text.format(balance_info['nick_name'],
+                                                               balance_info['amount'],
+                                                               balance_info['id'],
+                                                               balance_info['driver_id']
+                                                               )
+                                 )
+    bot.send_message(chat_id=from_user.id, text='催债结束')
+
 
 
 command = 'fee'

@@ -19,25 +19,22 @@ def handle(bot, update):
     member = member_service.select_by_tele_id(from_user)
     if member[0]["is_driver"] == 1:
         balance_list = balance_service.select_by_fee(from_user.id)
-        if len(balance_list) == 0:
+        for balance_info in balance_list:
+            bot.send_message(chat_id=balance_info['tele_id'],
+                                 text=balance_send_text.format(balance_info['nick_name'],
+                                                               balance_info['amount'],
+                                                               balance_info['id'],
+                                                               balance_info['driver_id']
+                                                               )
+                                 )
             bot.send_message(chat_id=from_user.id,
-                             text='吹债结束')
-        else:
-            for balance_info in balance_list:
-                bot.send_message(chat_id=balance_info['tele_id'],
                                  text=balance_send_text.format(balance_info['nick_name'],
                                                                balance_info['amount'],
                                                                balance_info['id'],
                                                                balance_info['driver_id']
                                                                )
                                  )
-                bot.send_message(chat_id=from_user.id,
-                                 text=balance_send_text.format(balance_info['nick_name'],
-                                                               balance_info['amount'],
-                                                               balance_info['id'],
-                                                               balance_info['driver_id']
-                                                               )
-                                 )
+        bot.send_message(chat_id=from_user.id, text='催债结束')
 
     else:
         update.message.reply_text(chat_id=from_user.id, text=driver_role_notice_text)

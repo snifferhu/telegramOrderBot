@@ -1,1 +1,0 @@
-INSERT INTO fate.driver_list (tele_id, store_id, create_time, update_time) VALUES ('427009122', '1', '2018-03-18 08:17:02', '2018-03-18 08:17:02');

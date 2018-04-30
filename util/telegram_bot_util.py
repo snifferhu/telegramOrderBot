@@ -28,7 +28,7 @@ def create_close_button(prefix):
     return [InlineKeyboardButton("over", callback_data="{0}_close".format(prefix))]
 
 
-def create_page_button_list(count, prefix, pageIndex=1, status="0"):
+def create_page_button_list(send_msg, count, prefix, pageIndex=1, status="0"):
     logger.info("create_page_button_list(count=%s, prefix=%s, pageIndex=%s, lastFiled=%s)",
                 count,
                 prefix,
@@ -43,9 +43,12 @@ def create_page_button_list(count, prefix, pageIndex=1, status="0"):
     start_page_flag = end_page_flag - 3 if end_page_flag - 3 > 0 else 1
     logger.info("create_page_button_list page_count %s,end_page_flag %s", page_count, end_page_flag)
     for page in range(start_page_flag, end_page_flag + 1):
-        data = "{0}_page_{1}_{2}".format(prefix, page, status)
         if page == pageIndex:
             page = "[ {0} ]".format(page)
+            data = "{0}_current_{1}_{2}_{3}".format(prefix, page, status, hash(send_msg))
+        else:
+            data = "{0}_page_{1}_{2}".format(prefix, page, status)
+        logger.info(data)
         button_list.append(create_button(page, data))
     if page_count != pageIndex:
         button_list.append(create_next_button(prefix, pageIndex, status))

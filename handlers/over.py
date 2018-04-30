@@ -82,6 +82,7 @@ command = 'over'
 
 def random_send_msg(send_msg_list, from_user, time=3):
     random_order = send_msg_list[randint(0, len(send_msg_list) - 1)]
+    send_msg_list.remove(random_order)
     if random_order["tele_id"] == from_user.id and time > 0:
         return random_send_msg(send_msg_list, from_user, --time)
     else:

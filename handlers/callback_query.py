@@ -25,10 +25,11 @@ def callback_query(bot, update):
     else:
         send_msg, keyboard_list = default()
     reply_markup = InlineKeyboardMarkup(keyboard_list)
-    bot.edit_message_text(text=send_msg,
-                          chat_id=query.message.chat_id,
-                          message_id=query.message.message_id,
-                          reply_markup=reply_markup)
+    if send_msg != None and send_msg != '':
+        bot.edit_message_text(text=send_msg,
+                              chat_id=query.message.chat_id,
+                              message_id=query.message.message_id,
+                              reply_markup=reply_markup)
 
 
 command = 'callback_query'

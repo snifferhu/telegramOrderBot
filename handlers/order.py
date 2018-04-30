@@ -39,7 +39,7 @@ def handle(bot, update):
         return
     item, price = order_info
     item = item.strip()
-    price = price.strip().replace("p", "").replace("P", "")
+    price = price.strip().replace("p", "").replace("P", "").strip()
 
     if price.isdigit() == False:
         update.message.reply_text(order_notice_msg)

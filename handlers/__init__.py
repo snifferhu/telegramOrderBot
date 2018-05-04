@@ -2,7 +2,7 @@ __all__ = [
     'start',
     'balance',
     'bal',
-    'deposit',
+    'deposit','dep',
     'help',
     'menu',
     'll',

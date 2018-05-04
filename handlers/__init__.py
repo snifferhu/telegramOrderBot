@@ -12,7 +12,7 @@ __all__ = [
     'balanceList', 'bl',
     'driver',
     'fee',
-    'follow',
+    'follow', 'f',
     'over',
     # 'role',
     'feeList', 'fl',

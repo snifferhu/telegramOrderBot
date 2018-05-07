@@ -14,7 +14,7 @@ __all__ = [
     'fee',
     'follow', 'f',
     'over',
-    # 'role',
+    'role',
     'feeList', 'fl',
     'callback_query',
     'openBus', 'closeBus',

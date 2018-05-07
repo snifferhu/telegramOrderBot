@@ -16,9 +16,9 @@ We are now collecting Telegram Order Bot user info in order to help us to improv
 **Feature schedule**
 -------------------------
 new commands 
-- rece
-- feeList and fl
 - ship
+- depositList
+- dl
 
 change commands 
 
@@ -36,3 +36,6 @@ change commands
 |follow|2018-03-18 16:33:57|
 |driver|2018-03-18 23:40:31|
 |over|2018-03-19 01:47:24|
+|feeList and fl|2018-03-21 15:00:24|
+|f|2018-05-04 13:13:57|
+|dep|2018-05-04 17:12:57|

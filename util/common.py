@@ -166,10 +166,9 @@ help_send_text = '''
 /driver - 申请开车命令，申请开车请参与培训、考取驾照
 /ll - 查看本趟列车上，所有乘客订单信息
 /over - 截单命令，进入收账周期
-/feeList - 欠费列表命令，截单后查看欠费乘客列表
-/fl - 欠费列表命令，截单后查看欠费乘客列表
+/feeList - 乘客列表命令，分别根据id、name、money排序
+/fl - 乘客列表命令，分别根据id、name、money排序
 /fee - 催单命令，截单后私聊催促欠费乘客
-/rece - receive收账命令
 /openBus - 开车，哔哔哔
 /closeBus - 收班，啪啪啪
 '''

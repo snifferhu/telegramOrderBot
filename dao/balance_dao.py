@@ -69,7 +69,7 @@ def select_amount_by_member(tele_id, driver_id):
 def select_count_driver_teleId(driver_id):
     logger.info("select_by_fee %s", 0)
     return dataBase.query(
-        'select count(*) from balance_info where driver_tele_id = %s', [driver_id]
+        'select count(*) as count,sum(amount) total from balance_info where driver_tele_id = %s', [driver_id]
     )[0]
 
 

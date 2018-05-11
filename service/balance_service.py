@@ -94,7 +94,7 @@ def select_by_fee(driver_tele_id):
 
 
 def select_count_driver_teleId(tele_id):
-    return balance_dao.select_count_driver_teleId(tele_id)["count(*)"]
+    return balance_dao.select_count_driver_teleId(tele_id)
 
 
 def select_by_driver_teleId(tele_id, current_page=1, order_flied="create_time", sort="asc"):

@@ -58,7 +58,8 @@ def exec(from_user, query_params):
 
 
 def page(tele_id, order, current_page, send_msg=None):
-    count = balance_service.select_count_driver_teleId(tele_id)
+    sout = balance_service.select_count_driver_teleId(tele_id)
+    count, total = sout['count'], sout['total']
     if send_msg == None:
         send_msg = balance_service.select_by_driver_teleId(tele_id,
                                                            current_page,
@@ -73,6 +74,7 @@ def page(tele_id, order, current_page, send_msg=None):
         keyboard_page = create_page_button_list(send_msg, count, prefix, current_page, order)
         keyboard_list.append(keyboard_page)
         keyboard_list.append(close_button)
+    send_msg = send_msg + "\nTotal: {0}".format(total)
     return send_msg, keyboard_list
 
 

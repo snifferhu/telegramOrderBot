@@ -35,3 +35,20 @@ def select_count_teleId(teleId):
         'select count(*) from deposit_list where tele_id = %s',
         [teleId]
     )[0]
+
+
+def select_count_all():
+    logger.info("select_count_all")
+    return dataBase.query('select count(*) from deposit_list')[0]
+
+
+def select_by_all(current_page):
+    logger.info("select_by_all %s", current_page)
+    return dataBase.query(
+        'select m.id,m.nickName,d.price,d.bef,d.aft,d.create_time '
+        'from deposit_list as d ,member as m '
+        'where d.tele_id = m.tele_id '
+        'order by d.create_time desc '
+        'limit %s offset %s',
+        [page_number, (int(current_page) - 1) * page_number]
+    )

@@ -3,6 +3,7 @@ __all__ = [
     'balance',
     'bal',
     'deposit', 'dep',
+    'depositList', 'dl',
     'help',
     'menu',
     'll',

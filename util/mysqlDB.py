@@ -33,7 +33,7 @@ class DataBase(object):
         except OperationalError as oe:
             logger.error("getConnect error :%s", oe)
 
-    def query(self, sql, arg):
+    def query(self, sql, arg=None):
         self.getConnect()
         with self.db.cursor() as cursor:
             cursor.execute(sql, arg)

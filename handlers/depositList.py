@@ -1,25 +1,27 @@
 # -*- coding: utf-8 -*-
 import logging
 from util.common import log_stream_handler
+from telegram import InlineKeyboardMarkup
+from handlers.callback import dl_callback
+
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
-
-from util.common import start_send_text
-from service import member_service
 
 
 def handle(bot, update):
     logger.info("chatId: %s,first_name: %s,text: %s", update.message.chat_id, update.message.from_user.first_name,
                 update.message.text)
     from_user = update.message.from_user
-    # 用户校验
-    member = member_service.select_by_tele_id(from_user)
-    # bot.send_message(chat_id=update.message.from_user.id, text=start_send_text)
-    update.message.reply_text(start_send_text)
+    send_msg, keyboard_list = dl_callback.page(1)
+    if len(keyboard_list) == 0:
+        bot.send_message(chat_id=update.message.from_user.id, text=send_msg)
+    else:
+        reply_markup = InlineKeyboardMarkup(keyboard_list)
+        bot.send_message(chat_id=update.message.from_user.id, text=send_msg, reply_markup=reply_markup)
 
 
-command = 'start'
+command = 'depositList'
 
 from telegram.ext import CommandHandler
 

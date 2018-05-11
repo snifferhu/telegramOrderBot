@@ -74,6 +74,12 @@ bal_title_msg = '''
 bal_info_msg = '''
 {0}\t{1}\t{2}\t{3}'''
 
+dl_title_msg = '''
+时间\t金额\t前\t后\t编号\t户名
+'''
+dl_info_msg = '''
+{5}\t\t{2}\t\t{3}\t\t{4}\t\t\t\t\t\t\t\t\t\t\t\t\t\t<{0}>\t\t{1}'''
+
 fl_title_msg = '''
 编号\t户名\t金额
 '''
@@ -145,6 +151,11 @@ order_list_notice_msg = '''
 '''
 
 help_send_text = '''
+----------入 门 须 知-----------
+新手上车需找到机器人激活：
+/start - 回复你：“start！来跟我念，诗达儿特。”
+自此创建账户
+
 /help - 帮助信息
 
 ----------订单相关命令----------

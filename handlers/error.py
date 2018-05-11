@@ -7,9 +7,7 @@ from telegram import InlineKeyboardMarkup
 # 将定义好的console日志handler添加到root logger
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
-from util.common import unauthorized_send_text
-from util.common import timeout_send_text
-
+from util.common import unauthorized_send_text, timeout_send_text, help_send_text
 
 def handle(bot, update, error):
     """Log Errors caused by Updates."""
@@ -19,6 +17,7 @@ def handle(bot, update, error):
         logger.warning('Update "%s" caused error "%s"', update, error.encode('utf-8'))
     if isinstance(error, Unauthorized):
         update.message.reply_text(unauthorized_send_text)
+        update.message.reply_text(help_send_text)
         logger.warning('Update "%s" caused error "%s"', update, error)
         return
     if isinstance(error, TimedOut):

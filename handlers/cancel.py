@@ -40,11 +40,11 @@ def handle(bot, update):
 
 
 def cancel_order(bot, from_user, order, send_msg):
-    driver = driver_dao.select_by_id(order[0]['id'])
     logging.info("cancel orders:{0}".format(order))
     if len(order) == 0:
         bot.send_message(chat_id=from_user.id, text=null_notice_send_text.format(order[0]['id']))
         return
+    driver = driver_dao.select_by_id(order[0]['driver_id'])
     tele_id = order[0]['member_id']
     if order[0]['order_status'] == '1':
         bot.send_message(chat_id=from_user.id, text=status_note_msg.format(order[0]['id']))

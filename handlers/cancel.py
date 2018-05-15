@@ -23,24 +23,24 @@ def handle(bot, update):
     from_user = update.message.from_user
     cmd, text = parse_cmd(update.message.text)
     logger.info("%s  %s", cmd, text)
-    driver = driver_dao.select_by_teleId(from_user.id)
     send_msg = order_title_msg
 
     tele_id = None
     if text == None or len(text) == 0:
         last_order = order_info_dao.select_last_one_teleId(from_user.id)
-        tele_id, send_msg = cancel_order(bot, from_user, last_order, driver, send_msg)
+        tele_id, send_msg = cancel_order(bot, from_user, last_order, send_msg)
         # update.message.reply_text(cancel_notice_text)
     else:
         for order_id in text.strip().split(' '):
             order = order_info_dao.select_by_id(order_id)
-            tele_id, send_msg = cancel_order(bot, from_user, order, driver, send_msg)
+            tele_id, send_msg = cancel_order(bot, from_user, order, send_msg)
     bot.send_message(chat_id=update.message.from_user.id, text=send_msg)
     if tele_id != None:
         bot.send_message(chat_id=tele_id, text=send_msg)
 
 
-def cancel_order(bot, from_user, order, driver, send_msg):
+def cancel_order(bot, from_user, order, send_msg):
+    driver = driver_dao.select_by_id(order[0]['id'])
     logging.info("cancel orders:{0}".format(order))
     if len(order) == 0:
         bot.send_message(chat_id=from_user.id, text=null_notice_send_text.format(order[0]['id']))

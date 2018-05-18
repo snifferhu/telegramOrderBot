@@ -17,9 +17,12 @@ def handle(bot, update):
     if (int(time.time()) > menu_sleep_mutex + 5):
         from_user = update.message.from_user
         store = store_service.select_by_from_user(from_user)
-        menu_photo = open(store[0]['menu_title'], 'rb')
-        bot.send_photo(chat_id=update.message.chat_id, photo=menu_photo, timeout=100)
-        menu_photo.close()
+        bot.send_message(chat_id=update.message.chat_id, text="餐单正在加载中...")
+        for menu_location in store[0]['menu_title'].split(','):
+            logger.info(menu_location)
+            menu_photo = open(menu_location, 'rb')
+            bot.send_photo(chat_id=update.message.chat_id, photo=menu_photo, timeout=100)
+            menu_photo.close()
         menu_sleep_mutex = int(time.time())
     else:
         bot.send_message(chat_id=update.message.chat_id, text="牛量有限，餐单稍等")

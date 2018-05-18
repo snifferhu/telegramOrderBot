@@ -9,7 +9,7 @@ logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
 from util.common import parse_cmd
-from util.common import order_notice_msg
+from util.common import order_notice_msg, order_list_notice_msg
 from util.common import order_detail_msg, driver_close_msg
 from dao import order_info_dao
 from dao import driver_dao
@@ -45,6 +45,9 @@ def handle(bot, update):
         update.message.reply_text(order_notice_msg)
         return
     balance = balance_service.select_amount_by_member(member[0])
+    if balance["amount"] < 0:
+        bot.send_message(chat_id=from_user.id, text=order_list_notice_msg)
+        return
     if balance["amount"] < int(price):
         bot.send_message(chat_id=from_user.id, text=order_balance_notice_msg)
         send_text = balance_service.select_all_by_tele_id(member[0])

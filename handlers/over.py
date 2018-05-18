@@ -68,13 +68,15 @@ def handle(bot, update):
                              text=over_title_msg + send_order_msg + "\n余额：{0}".format(send_msg_info["amount"]))
         except:
             logger.warning(send_order_msg)
+    send_msg = send_msg + "\n合计：{0} \t份数：{1}".format(total_price, len(order_list))
+    bot.send_message(chat_id=update.message.chat_id, text=send_msg)
+
     number = int(text) if text != None and text.isdigit() else int(len(order_list) / 10) - 1
     for x in range(number):
         random_order = random_send_msg(send_msg_list, from_user)
         bot.send_message(chat_id=update.message.chat_id, text="请 <{0}> 协助拿饭".format(random_order["nick_name"]))
         bot.send_message(chat_id=random_order["tele_id"], text="请 <{0}> 协助拿饭".format(random_order["nick_name"]))
-    send_msg = send_msg + "\n合计：{0} \t份数：{1}".format(total_price, len(order_list))
-    bot.send_message(chat_id=update.message.chat_id, text=send_msg)
+
 
 
 command = 'over'

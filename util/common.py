@@ -91,11 +91,10 @@ order_title_msg = '''
 编号\t详情\t金额\t状态\t下单时间'''
 
 ll_title_msg = '''
-户名\t编号\t详情\t金额\t下单时间'''
+下单时间\t编号\t金额\t详情\t户名'''
 
 order_info_msg = '''
-{0}\t<{1}>\t{2}\t{3}\n{4}
-'''
+{4}\t\t\t\t\t\t\t\t\t\t\t\t<{1}>\t{3}\t[{2}]\t\t\t\t\t{0}'''
 
 over_title_msg = '''
 户名\t详情\t金额'''
@@ -114,6 +113,9 @@ order_detail_msg = '''
 order_notice_msg = '''格式错误
 示例：/order [订单信息]#[金额] 
 示范：/order A1 B1 C1#160'''
+
+order_list_notice_msg = '''
+下单失败，已欠费，尽快缴费！'''
 
 order_balance_notice_msg = '''
 下单已成功，但是余额不足，尽快缴费！'''

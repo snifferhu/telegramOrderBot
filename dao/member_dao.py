@@ -15,8 +15,8 @@ dataBase = DataBase(**db_config)
 def insert(**kwargs):
     logger.info(kwargs)
     dataBase.execute(
-        'insert into member (name,nickName,amout,phone,tele_id,driver_id) values (%s,%s,%s,%s,%s,%s)',
-        (kwargs['username'], kwargs['first_name'], 0.0, '', kwargs['tele_id'], '1')
+        'insert into member (name,nickName,amout,phone,tele_id) values (%s,%s,%s,%s,%s)',
+        (kwargs['username'], kwargs['first_name'], 0.0, '', kwargs['tele_id'])
     )
 
 

@@ -37,8 +37,7 @@ timeout_send_text = '''
 '''
 
 user_send_text = '''大佬：<{0}>
-编号：{1}
-'''
+编号：{1}'''
 
 balance_send_text = '''
 司机车牌：{3}

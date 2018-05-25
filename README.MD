@@ -17,7 +17,7 @@ We are now collecting Telegram Order Bot user info in order to help us to improv
 -------------------------
 new commands 
 - ship
-- search
+
 
 change commands 
 
@@ -40,3 +40,4 @@ change commands
 |dep|2018-05-04 17:12:57|
 |depositList|2018-5-11 10:37:35|
 |dl|2018-5-11 10:37:38|
+|search|2018-5-25 14:53:47|

@@ -101,6 +101,12 @@ over_title_msg = '''
 over_info_msg = '''
 {0}\t<{1}>\t{2}'''
 
+search_title_msg = '''
+编号\t户名\t'''
+
+search_info_msg = '''
+<{0}>\t{1}'''
+
 order_detail_msg = '''
 大佬，<{0}>
 订单为：{1}

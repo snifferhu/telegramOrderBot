@@ -1,5 +1,6 @@
 __all__ = [
     'start',
+    'search',
     'balance',
     'bal',
     'deposit', 'dep',

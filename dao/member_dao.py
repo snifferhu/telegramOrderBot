@@ -41,6 +41,13 @@ def select_by_cui():
     )
 
 
+def select_by_nickName(nickName):
+    logger.info("select_by_nickName %s", nickName)
+    return dataBase.query(
+        'select * from member where nickName like %s', ['%' + nickName + '%']
+    )
+
+
 def update_amout(price, tele_id, bef):
     logger.info("update_amout %s %s %s", price, tele_id, bef)
     dataBase.execute(

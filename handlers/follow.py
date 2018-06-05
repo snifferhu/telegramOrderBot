@@ -29,6 +29,10 @@ def handle(bot, update):
         update.message.reply_text(follow_notice_msg)
         return
 
+    if text == '3':
+        update.message.reply_text("peter司机，换机器人咯！\n详情请联系 @peterDiancan_bot")
+        return
+
     driver = driver_dao.select_by_id(text)
     if (len(driver) == 0):
         update.message.reply_text(follow_null_notice_msg)

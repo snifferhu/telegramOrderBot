@@ -49,9 +49,7 @@ balance_send_text = '''
 
 balance_all_send_text = '''
 司机车牌：{1}
-
-余额：{0}
-'''
+余额：{0}'''
 
 cancel_notice_text = '''
 格式错误

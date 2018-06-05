@@ -6,8 +6,9 @@ from util.common import log_stream_handler
 logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
-from util.common import help_send_text, parse_cmd, user_send_text,search_title_msg,search_info_msg
+from util.common import help_send_text, parse_cmd, search_title_msg, search_info_msg
 from dao import member_dao
+from service import balance_service
 
 
 def handle(bot, update):
@@ -21,6 +22,7 @@ def handle(bot, update):
     send_text = search_title_msg
     for member in members:
         send_text = send_text + search_info_msg.format(member['id'], member['nickName'])
+        send_text = send_text + balance_service.select_all_by_tele_id(member)
     bot.send_message(chat_id=update.message.from_user.id, text=send_text)
 
 

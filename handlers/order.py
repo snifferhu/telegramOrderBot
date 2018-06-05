@@ -25,6 +25,9 @@ def handle(bot, update):
     # 用户校验
     member = member_service.select_by_tele_id(from_user)
 
+    if member[0]['driver_id'] == '3':
+        update.message.reply_text("peter司机，换机器人咯！\n详情请联系 @peterDiancan_bot")
+        return
     driver = driver_dao.select_by_id(member[0]['driver_id'])
     if driver == None or len(driver) == 0 or driver[0]['open_status'] == '1':
         update.message.reply_text(driver_close_msg.format(driver[0]['id']))

@@ -48,7 +48,7 @@ def handle(bot, update):
                      text=send_text)
 
 
-command = 'mmp'
+command = 'income'
 
 from telegram.ext import CommandHandler
 

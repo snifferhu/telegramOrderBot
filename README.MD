@@ -7,12 +7,16 @@ We are now collecting Telegram Order Bot user info in order to help us to improv
 
 **OverView**
 ----------------------
+- lib dependency
 |lib |version|
 |:-------------------|-----:|
 |python | 3.6+|
 |python telegram bot| 9.00|
 |pymysql|0.8.0|
 
+- database dependency
+mysql 5.7+
+or mariadb 10.0 Series+
 **Feature schedule**
 -------------------------
 new commands 
@@ -41,3 +45,45 @@ change commands
 |depositList|2018-5-11 10:37:35|
 |dl|2018-5-11 10:37:38|
 |search|2018-5-25 14:53:47|
+
+**Install Step**
+-------------------------
+- python
+```
+1. download [python](https://www.python.org/downloads/) & install it
+2. pip install pymysql
+3. pip install python-telegram-bot
+```
+- database
+```
+1. download [mysql](https://www.mysql.com/downloads/) or [mariadb](https://mariadb.org/download/) & install it
+2. unzip ./database/information_[*].zip
+3. copy information_[*].sql & exec it
+```
+- file init
+```
+1. create log file 
+2. create menu file
+```
+- config file context
+file name : ./util/core_config.py
+```python
+# -*- coding: utf-8 -*-
+
+db_config = {
+    'user': '[your user name]',
+    'password': '[your password]',
+    'host': '127.0.0.1',
+    'database': 'fate',
+    # 'raise_on_warnings': True,
+    # 'pool_name': "mypool",
+    # 'pool_size': 5,
+    # 'pool_reset_session': True,
+}
+
+robot_token = '[your bot token]'
+```
+- run
+```bash
+python main.py
+```

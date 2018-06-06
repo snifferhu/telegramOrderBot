@@ -9,7 +9,7 @@ logging.getLogger(__name__).addHandler(log_stream_handler())
 logger = logging.getLogger(__name__)
 
 from util.common import parse_cmd
-from util.common import order_notice_msg, order_list_notice_msg
+from util.common import order_notice_msg, order_fail_notice_msg
 from util.common import order_detail_msg, driver_close_msg
 from dao import order_info_dao
 from dao import driver_dao
@@ -25,9 +25,6 @@ def handle(bot, update):
     # 用户校验
     member = member_service.select_by_tele_id(from_user)
 
-    if member[0]['driver_id'] == '3':
-        update.message.reply_text("peter司机，换机器人咯！\n详情请联系 @peterDiancan_bot")
-        return
     driver = driver_dao.select_by_id(member[0]['driver_id'])
     if driver == None or len(driver) == 0 or driver[0]['open_status'] == '1':
         update.message.reply_text(driver_close_msg.format(driver[0]['id']))
@@ -49,7 +46,7 @@ def handle(bot, update):
         return
     balance = balance_service.select_amount_by_member(member[0])
     if balance["amount"] < 0:
-        bot.send_message(chat_id=from_user.id, text=order_list_notice_msg)
+        bot.send_message(chat_id=from_user.id, text=order_fail_notice_msg)
         return
     if balance["amount"] < int(price):
         bot.send_message(chat_id=from_user.id, text=order_balance_notice_msg)

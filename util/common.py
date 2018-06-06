@@ -117,7 +117,7 @@ order_notice_msg = '''格式错误
 示例：/order [订单信息]#[金额] 
 示范：/order A1 B1 C1#160'''
 
-order_list_notice_msg = '''
+order_fail_notice_msg = '''
 下单失败，已欠费，尽快缴费！'''
 
 order_balance_notice_msg = '''

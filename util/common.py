@@ -145,14 +145,14 @@ deposit_send_text = '''
 
 balance_list_notice_msg = '''
 输入参数，格式错误
-示例：/balanceList [页码]\tor /bl [页码] 
-示范：/balanceList 1\t/bl 1
+示例：/balanceList \tor /bl
+示范：/balanceList \t/bl 
 '''
 
 order_list_notice_msg = '''
 输入参数，格式错误
-示例：/orderList [页码]\tor /ol [页码] 
-示范：/orderList 1\tor /ol 1
+示例：/orderList\tor /ol
+示范：/orderList tor /ol 
 '''
 
 help_send_text = '''

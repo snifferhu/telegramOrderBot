@@ -187,8 +187,8 @@ help_send_text = '''
 /feeList - 乘客列表命令，分别根据id、name、money排序
 /fl - 乘客列表命令，分别根据id、name、money排序
 /fee - 催单命令，截单后私聊催促欠费乘客
-/openBus - 开车，哔哔哔
-/closeBus - 收班，啪啪啪
+/openBus - 开始点餐啦！
+/closeBus - 停止点餐啦！
 '''
 
 driver_close_msg = '''
@@ -219,11 +219,11 @@ driver_role_notice_text = '''
 '''
 
 driver_open_notice_text = '''
-哔哔哔，开车啦！
+开始点餐啦！
 '''
 
 driver_close_notice_text = '''
-啪啪啪，收班啦！
+停止点餐啦！
 '''
 driver_yes_msg = '''
 司机 <{0}>

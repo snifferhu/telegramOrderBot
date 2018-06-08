@@ -17,7 +17,7 @@ def handle(bot, update, error):
         logger.warning('Update "%s" caused error "%s"', update, error.encode('utf-8'))
     if isinstance(error, Unauthorized):
         update.message.reply_text(unauthorized_send_text)
-        update.message.reply_text(help_send_text)
+        # update.message.reply_text(help_send_text)
         logger.warning('Update "%s" caused error "%s"', update, error)
         return
     if isinstance(error, TimedOut):

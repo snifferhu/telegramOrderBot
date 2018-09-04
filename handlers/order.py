@@ -47,7 +47,6 @@ def handle(bot, update):
     balance = balance_service.select_amount_by_member(member[0])
     if balance["amount"] < 0:
         bot.send_message(chat_id=from_user.id, text=order_fail_notice_msg)
-        return
     if balance["amount"] < int(price):
         bot.send_message(chat_id=from_user.id, text=order_balance_notice_msg)
         send_text = balance_service.select_all_by_tele_id(member[0])
